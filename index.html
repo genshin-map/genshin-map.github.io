@@ -3,47 +3,48 @@
 
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-	<title>Genshin Map</title>
+	<title>Bản đồ Genshin - Genshin Impact map</title>
+	<meta name="description" content="Bản đồ Genshin, Bản đồ Genshin Impact, Bản đồ rương Genshin Impact, Genshin map, Genshin Impact map, Genshin Impact chest map, Genshin Impact map vn" />
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="leaflet/leaflet.css">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" href="dist/MarkerCluster.css" />
 	<link rel="stylesheet" href="dist/MarkerCluster.Default.css" />
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-555995DXBS"></script>
 	<script>
-		var _hmt = _hmt || [];
-		// (function () {
-		// 	var hm = document.createElement("script");
-		// 	hm.src = "https://hm.baidu.com/hm.js?cd4f7eed0a6e62d83b92c5dfb9f1a20f";
-		// 	var s = document.getElementsByTagName("script")[0];
-		// 	s.parentNode.insertBefore(hm, s);
-		// })();
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-555995DXBS');
 	</script>
 </head>
 
 <body>
 	<div id='map'></div>
 	<div class="danjixiazai"></div>
-	<!-- 筛选器 -->
+	<!-- Bộ lọc -->
 	<div class="control-containor">
 		<img class="Background" src="imgs/con_img/Content.png">
-		<a href="javascript:;" class="fold-btn hd">fold</a>
+		<a href="javascript:;" class="fold-btn hd">Thu gọn</a>
 		<div class="person-div">
 			<span class="Layer_FST map-opts" area="MD" itemtype="TX">
-				<a href="javascript:;" class="save-btn disable ">Download Markers</a>
+				<a href="javascript:;" class="save-btn disable ">Tải xuống Đánh dấu</a>
 			</span>
 		</div>
 		<div class="topLine"></div>
-		<!-- 筛选器左侧页签 -->
+		<!-- Tab bên trái của bộ lọc -->
 		<ul class="con-type-label-containor">
 			<li class="con-type-label lable1" i_type="TX">Oculi</li>
-			<li class="con-type-label lable2" i_type="TC">Specialty</li>
-			<li class="con-type-label lable3" i_type="KW">Ore</li>
-			<li class="con-type-label lable4" i_type="GW">Mobs</li>
-			<li class="con-type-label lable5" i_type="SC">Food</li>
-			<li class="con-type-label lable6" i_type="LJ">Alchemy</li>
+			<li class="con-type-label lable2" i_type="TC">Nguyên liệu</li>
+			<li class="con-type-label lable3" i_type="KW">Quặng</li>
+			<li class="con-type-label lable4" i_type="GW">Quái</li>
+			<li class="con-type-label lable5" i_type="SC">Món ăn</li>
+			<li class="con-type-label lable6" i_type="LJ">Thuật giả kim</li>
 		</ul>
-		<!-- 筛选器上侧地区分类 -->
+		<!-- Lọc phân loại khu vực phía trên -->
 		<ul class="area-list-containor">
 			<a href="javascript:;" class="area-list-li-containor on" i_area="MD">
 				<span class="area-text">Mond</span>
@@ -54,297 +55,297 @@
 				<span class="area-img liyue hd off">area-img</span>
 			</a>
 		</ul>
-		<!-- 筛选器下测已选项框体（占位元素，勿动） -->
+		<!-- Chọn hộp đã chọn trong bộ lọc (phần tử giữ chỗ, không di chuyển) -->
 		<ul class="selector-list-containor">
 			<p style="display: none;"></p>
 		</ul>
-		<!-- 筛选器筛选列表以及筛选项 -->
+		<!-- Lọc danh sách bộ lọc và lọc các mục -->
 		<div class="options-containor">
 			<div class="options-list">
 				<span class="Layer_FST map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_0.png" class="map-opts-icon" alt="icon"></div>Anemoculus
+					<div class="img-border"><img src="imgs/icon_0.png" class="map-opts-icon" alt="icon"></div>Phong thần đồng
 				</span>
 				<span class="Layer_YST map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_1.png" class="map-opts-icon" alt="icon"></div>Geoculus
+					<div class="img-border"><img src="imgs/icon_1.png" class="map-opts-icon" alt="icon"></div>Nham thần đồng
 				</span>
 				<span class="Layer_DLK_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_2.png" class="map-opts-icon" alt="icon"></div>Shrine
+					<div class="img-border"><img src="imgs/icon_2.png" class="map-opts-icon" alt="icon"></div>Đền thờ
 				</span>
 				<span class="Layer_DLK_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_3.png" class="map-opts-icon" alt="icon"></div>Shrine
+					<div class="img-border"><img src="imgs/icon_3.png" class="map-opts-icon" alt="icon"></div>Đền thờ
 				</span>
 				<span class="Layer_BX_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_26.png" class="map-opts-icon" alt="icon"></div>Chests
+					<div class="img-border"><img src="imgs/icon_26.png" class="map-opts-icon" alt="icon"></div>Rương
 				</span>
 				<span class="Layer_BX_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_27.png" class="map-opts-icon" alt="icon"></div>Chests
+					<div class="img-border"><img src="imgs/icon_27.png" class="map-opts-icon" alt="icon"></div>Rương
 				</span>
 				<span class="Layer_SJK_LY map-opts" area="LY" itemtype="KW">
-					<div class="img-border"><img src="imgs/icon_16.png" class="map-opts-icon" alt="icon"></div>水晶矿-璃月
+					<div class="img-border"><img src="imgs/icon_16.png" class="map-opts-icon" alt="icon"></div>Mỏ pha lê-Liyue
 				</span>
 				<span class="Layer_BTK_LY map-opts" area="LY" itemtype="KW">
-					<div class="img-border"><img src="imgs/icon_17.png" class="map-opts-icon" alt="icon"></div>白铁矿-璃月
+					<div class="img-border"><img src="imgs/icon_17.png" class="map-opts-icon" alt="icon"></div>Quặng sắt-Liyue
 				</span>
 				<span class="Layer_SJK_MD map-opts" area="MD" itemtype="KW">
-					<div class="img-border"><img src="imgs/icon_18.png" class="map-opts-icon" alt="icon"></div>水晶矿-蒙德
+					<div class="img-border"><img src="imgs/icon_18.png" class="map-opts-icon" alt="icon"></div>Mỏ pha lê-Mond
 				</span>
 				<span class="Layer_BTK_MD map-opts" area="MD" itemtype="KW">
-					<div class="img-border"><img src="imgs/icon_19.png" class="map-opts-icon" alt="icon"></div>白铁矿-蒙德
+					<div class="img-border"><img src="imgs/icon_19.png" class="map-opts-icon" alt="icon"></div>Quặng sắt-Mond
 				</span>
 				<span class="Layer_JYJJ map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_4.png" class="map-opts-icon" alt="icon"></div>绝云椒椒
+					<div class="img-border"><img src="imgs/icon_4.png" class="map-opts-icon" alt="icon"></div>Ớt Tuyệt Vân - Xiangling
 				</span>
 				<span class="Layer_NSH map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_5.png" class="map-opts-icon" alt="icon"></div>霓裳花
+					<div class="img-border"><img src="imgs/icon_5.png" class="map-opts-icon" alt="icon"></div>Hoa Nghê Thường - Xingqiu
 				</span>
 				<span class="Layer_LLBH map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_6.png" class="map-opts-icon" alt="icon"></div>琉璃百合
+					<div class="img-border"><img src="imgs/icon_6.png" class="map-opts-icon" alt="icon"></div>Bách Hợp Lưu Ly - Ningguang
 				</span>
 				<span class="Layer_YPS map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_14.png" class="map-opts-icon" alt="icon"></div>夜泊石
+					<div class="img-border"><img src="imgs/icon_14.png" class="map-opts-icon" alt="icon"></div>Dạ Thạch Phách - Beidou
 				</span>
 				<span class="Layer_SP map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_15.png" class="map-opts-icon" alt="icon"></div>石珀
+					<div class="img-border"><img src="imgs/icon_15.png" class="map-opts-icon" alt="icon"></div>Thạch Phách - Keqing, Chongyun
 				</span>
 				<span class="Layer_GGG map-opts" area="MD" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_7.png" class="map-opts-icon" alt="icon"></div>钩钩果
+					<div class="img-border"><img src="imgs/icon_7.png" class="map-opts-icon" alt="icon"></div>Quả Móc Câu
 				</span>
 				<span class="Layer_DDL map-opts" area="MD" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_8.png" class="map-opts-icon" alt="icon"></div>嘟嘟莲
+					<div class="img-border"><img src="imgs/icon_8.png" class="map-opts-icon" alt="icon"></div>Hoa Calla Lily
 				</span>
 				<span class="Layer_LLM map-opts" area="MD" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_11.png" class="map-opts-icon" alt="icon"></div>落落梅
+					<div class="img-border"><img src="imgs/icon_11.png" class="map-opts-icon" alt="icon"></div>Quả Dâu Đỏ
 				</span>
 				<span class="Layer_SXLYH map-opts" area="MD" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_9.png" class="map-opts-icon" alt="icon"></div>塞西莉亚花
+					<div class="img-border"><img src="imgs/icon_9.png" class="map-opts-icon" alt="icon"></div>Hoa Cecilia
 				</span>
 				<span class="Layer_MFMG map-opts" area="MD" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_10.png" class="map-opts-icon" alt="icon"></div>慕风蘑菇
+					<div class="img-border"><img src="imgs/icon_10.png" class="map-opts-icon" alt="icon"></div>Nấm Rơm Gió
 				</span>
 				<span class="Layer_FCJ map-opts" area="MD" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_12.png" class="map-opts-icon" alt="icon"></div>风车菊
+					<div class="img-border"><img src="imgs/icon_12.png" class="map-opts-icon" alt="icon"></div>Cúc Cánh Quạt
 				</span>
 				<span class="Layer_PGYZ map-opts" area="MD" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_13.png" class="map-opts-icon" alt="icon"></div>蒲公英籽
+					<div class="img-border"><img src="imgs/icon_13.png" class="map-opts-icon" alt="icon"></div>Hạt Bồ Công Anh
 				</span>
 				<span class="Layer_SYFS_MD map-opts" area="MD" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_31.png" class="map-opts-icon" alt="icon"></div>深渊法师-蒙德
+					<div class="img-border"><img src="imgs/icon_31.png" class="map-opts-icon" alt="icon"></div>Pháp sư-Mond
 				</span>
 				<span class="Layer_SYFS_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_24.png" class="map-opts-icon" alt="icon"></div>深渊法师-璃月
+					<div class="img-border"><img src="imgs/icon_24.png" class="map-opts-icon" alt="icon"></div>Pháp sư-Liyue
 				</span>
 				<span class="Layer_LYSS_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_22.png" class="map-opts-icon" alt="icon"></div>雷莹术士-璃月
+					<div class="img-border"><img src="imgs/icon_22.png" class="map-opts-icon" alt="icon"></div>雷莹术士-Liyue
 				</span>
 				<span class="Layer_ZWCLR_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_23.png" class="map-opts-icon" alt="icon"></div>债务处理人-璃月
+					<div class="img-border"><img src="imgs/icon_23.png" class="map-opts-icon" alt="icon"></div>Người xử lý nợ-Liyue
 				</span>
 				<span class="Layer_XQD_MD map-opts" area="MD" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_37.png" class="map-opts-icon" alt="icon"></div>先遣队-蒙德
+					<div class="img-border"><img src="imgs/icon_37.png" class="map-opts-icon" alt="icon"></div>Fatui-Mond
 				</span>
 				<span class="Layer_XQD_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_38.png" class="map-opts-icon" alt="icon"></div>先遣队-璃月
+					<div class="img-border"><img src="imgs/icon_38.png" class="map-opts-icon" alt="icon"></div>Fatui-Liyue
 				</span>
 				<span class="Layer_PPH_MD map-opts" area="MD" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_35.png" class="map-opts-icon" alt="icon"></div>骗骗花-蒙德
+					<div class="img-border"><img src="imgs/icon_35.png" class="map-opts-icon" alt="icon"></div>Cây lừa dối-Mond
 				</span>
 				<span class="Layer_PPH_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_36.png" class="map-opts-icon" alt="icon"></div>骗骗花-璃月
+					<div class="img-border"><img src="imgs/icon_36.png" class="map-opts-icon" alt="icon"></div>Cây lừa dối-Liyue
 				</span>
 				<span class="Layer_YYLX_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_39.png" class="map-opts-icon" alt="icon"></div>幼岩龙蜥-璃月
+					<div class="img-border"><img src="imgs/icon_39.png" class="map-opts-icon" alt="icon"></div>Rồng đá-Liyue
 				</span>
 				<span class="Layer_YJSW_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_20.png" class="map-opts-icon" alt="icon"></div>遗迹守卫-璃月
+					<div class="img-border"><img src="imgs/icon_20.png" class="map-opts-icon" alt="icon"></div>Thủ vệ di tích-Liyue
 				</span>
 				<span class="Layer_YJSW_MD map-opts" area="MD" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_29.png" class="map-opts-icon" alt="icon"></div>遗迹守卫-蒙德
+					<div class="img-border"><img src="imgs/icon_29.png" class="map-opts-icon" alt="icon"></div>Thủ vệ di tích-Mond
 				</span>
 				<span class="Layer_YJLZ_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_21.png" class="map-opts-icon" alt="icon"></div>遗迹猎者-璃月
+					<div class="img-border"><img src="imgs/icon_21.png" class="map-opts-icon" alt="icon"></div>Thủ vệ biết bay-Liyue
 				</span>
 				<span class="Layer_DBT_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_34.png" class="map-opts-icon" alt="icon"></div>盗宝团-璃月
+					<div class="img-border"><img src="imgs/icon_34.png" class="map-opts-icon" alt="icon"></div>Kẻ trộm-Liyue
 				</span>
 				<span class="Layer_DXQQR_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_25.png" class="map-opts-icon" alt="icon"></div>大型丘丘人-璃月
+					<div class="img-border"><img src="imgs/icon_25.png" class="map-opts-icon" alt="icon"></div>Bạo Đồ Hilichurl-Liyue
 				</span>
 				<span class="Layer_LLD map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_28.png" class="map-opts-icon" alt="icon"></div>琉璃袋
+					<div class="img-border"><img src="imgs/icon_28.png" class="map-opts-icon" alt="icon"></div>Túi lưu ly
 				</span>
 				<span class="Layer_DXQQR_MD map-opts" area="MD" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_30.png" class="map-opts-icon" alt="icon"></div>大型丘丘人-蒙德
+					<div class="img-border"><img src="imgs/icon_30.png" class="map-opts-icon" alt="icon"></div>Bạo Đồ Hilichurl-Mond
 				</span>
 				<span class="Layer_SLM_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_41.png" class="map-opts-icon" alt="icon"></div>史莱姆-璃月
+					<div class="img-border"><img src="imgs/icon_41.png" class="map-opts-icon" alt="icon"></div>Chất nhờn-Liyue
 				</span>
 				<span class="Layer_QX map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_44.png" class="map-opts-icon" alt="icon"></div>清心
+					<div class="img-border"><img src="imgs/icon_44.png" class="map-opts-icon" alt="icon"></div>Thanh tâm
 				</span>
 				<span class="Layer_MW map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_45.png" class="map-opts-icon" alt="icon"></div>马尾
+					<div class="img-border"><img src="imgs/icon_45.png" class="map-opts-icon" alt="icon"></div>Cỏ đuôi ngựa
 				</span>
 				<span class="Layer_LP map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_46.png" class="map-opts-icon" alt="icon"></div>莲蓬
+					<div class="img-border"><img src="imgs/icon_46.png" class="map-opts-icon" alt="icon"></div>Đài sen
 				</span>
 				<span class="Layer_XL map-opts" area="LY" itemtype="TC">
-					<div class="img-border"><img src="imgs/icon_47.png" class="map-opts-icon" alt="icon"></div>星螺
+					<div class="img-border"><img src="imgs/icon_47.png" class="map-opts-icon" alt="icon"></div>Ốc sao
 				</span>
 				<span class="Layer_XDC map-opts" area="MD" itemtype="TC">
 					<div class="img-border"><img src="imgs/icon_48.png" class="map-opts-icon" alt="icon"></div>小灯草
 				</span>
 				<span class="Layer_BWHHD_MD map-opts" area="MD" itemtype="LJ">
-					<div class="img-border"><img src="imgs/icon_49.png" class="map-opts-icon" alt="icon"></div>冰雾花花朵-蒙德
+					<div class="img-border"><img src="imgs/icon_49.png" class="map-opts-icon" alt="icon"></div>Hoa băng giá-Mond
 				</span>
-				<!-- <span class="Layer_BWHHD_LY map-opts" area="LY" itemtype="LJ">
-					<div class="img-border"><img src="imgs/icon_50.png" class="map-opts-icon" alt="icon"></div>冰雾花花朵-璃月
-				</span> -->
+				<span class="Layer_BWHHD_LY map-opts" area="LY" itemtype="LJ">
+					<div class="img-border"><img src="imgs/icon_50.png" class="map-opts-icon" alt="icon"></div>Hoa băng giá-Liyue
+				</span>
 				<span class="Layer_LYHHR_MD map-opts" area="MD" itemtype="LJ">
-					<div class="img-border"><img src="imgs/icon_51.png" class="map-opts-icon" alt="icon"></div>烈焰花花蕊-蒙德
+					<div class="img-border"><img src="imgs/icon_51.png" class="map-opts-icon" alt="icon"></div>Hoa lửa-Mond
 				</span>
-				<!-- <span class="Layer_LYHHR_LY map-opts" area="LY" itemtype="LJ">
-					<div class="img-border"><img src="imgs/icon_52.png" class="map-opts-icon" alt="icon"></div>烈焰花花蕊-璃月
-				</span> -->
+				<span class="Layer_LYHHR_LY map-opts" area="LY" itemtype="LJ">
+					<div class="img-border"><img src="imgs/icon_52.png" class="map-opts-icon" alt="icon"></div>Hoa lửa-Liyue
+				</span>
 				<span class="Layer_DQSJ_MD map-opts" area="MD" itemtype="LJ">
-					<div class="img-border"><img src="imgs/icon_53.png" class="map-opts-icon" alt="icon"></div>电气水晶-蒙德
+					<div class="img-border"><img src="imgs/icon_53.png" class="map-opts-icon" alt="icon"></div>Tinh thể điện-Mond
 				</span>
-				<!-- <span class="Layer_DQSJ_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_54.png" class="map-opts-icon" alt="icon"></div>电气水晶-璃月
-				</span> -->
+				<span class="Layer_DQSJ_LY map-opts" area="LY" itemtype="TX">
+					<div class="img-border"><img src="imgs/icon_54.png" class="map-opts-icon" alt="icon"></div>Tinh thể điện-Liyue
+				</span>
 				<!-- <span class="Layer_SBLM_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_55.png" class="map-opts-icon" alt="icon"></div>撒币卢咪-蒙德
+					<div class="img-border"><img src="imgs/icon_55.png" class="map-opts-icon" alt="icon"></div>撒币卢咪-Mond
 				</span> -->
 				<!-- <span class="Layer_SBLM_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_56.png" class="map-opts-icon" alt="icon"></div>撒币卢咪-璃月
+					<div class="img-border"><img src="imgs/icon_56.png" class="map-opts-icon" alt="icon"></div>撒币卢咪-Liyue
 				</span> -->
 				<!-- <span class="Layer_FGS_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_57.png" class="map-opts-icon" alt="icon"></div>发光髓-蒙德
+					<div class="img-border"><img src="imgs/icon_57.png" class="map-opts-icon" alt="icon"></div>发光髓-Mond
 				</span> -->
 				<!-- <span class="Layer_FGS_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_58.png" class="map-opts-icon" alt="icon"></div>发光髓-璃月
+					<div class="img-border"><img src="imgs/icon_58.png" class="map-opts-icon" alt="icon"></div>发光髓-Liyue
 				</span> -->
 				<!-- <span class="Layer_JH_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_59.png" class="map-opts-icon" alt="icon"></div>晶核-蒙德
+					<div class="img-border"><img src="imgs/icon_59.png" class="map-opts-icon" alt="icon"></div>晶核-Mond
 				</span> -->
 				<!-- <span class="Layer_JH_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_60.png" class="map-opts-icon" alt="icon"></div>晶核-璃月
+					<div class="img-border"><img src="imgs/icon_60.png" class="map-opts-icon" alt="icon"></div>晶核-Liyue
 				</span> -->
 				<!-- <span class="Layer_JYC_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_61.png" class="map-opts-icon" alt="icon"></div>金鱼草-蒙德
+					<div class="img-border"><img src="imgs/icon_61.png" class="map-opts-icon" alt="icon"></div>金鱼草-Mond
 				</span> -->
 				<!-- <span class="Layer_JYC_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_62.png" class="map-opts-icon" alt="icon"></div>金鱼草-璃月
+					<div class="img-border"><img src="imgs/icon_62.png" class="map-opts-icon" alt="icon"></div>金鱼草-Liyue
 				</span> -->
 				<!-- <span class="Layer_HDCB_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_63.png" class="map-opts-icon" alt="icon"></div>蝴蝶翅膀-蒙德
+					<div class="img-border"><img src="imgs/icon_63.png" class="map-opts-icon" alt="icon"></div>蝴蝶翅膀-Mond
 				</span> -->
 				<!-- <span class="Layer_HDCB_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_64.png" class="map-opts-icon" alt="icon"></div>蝴蝶翅膀-璃月
+					<div class="img-border"><img src="imgs/icon_64.png" class="map-opts-icon" alt="icon"></div>蝴蝶翅膀-Liyue
 				</span> -->
 				<span class="Layer_PX_MD map-opts" area="MD" itemtype="SC">
-					<div class="img-border"><img src="imgs/icon_65.png" class="map-opts-icon" alt="icon"></div>螃蟹-蒙德
+					<div class="img-border"><img src="imgs/icon_65.png" class="map-opts-icon" alt="icon"></div>Cua-Mond
 				</span>
-				<!-- <span class="Layer_PX_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_66.png" class="map-opts-icon" alt="icon"></div>螃蟹-璃月
+				<span class="Layer_PX_LY map-opts" area="LY" itemtype="TX">
+					<div class="img-border"><img src="imgs/icon_66.png" class="map-opts-icon" alt="icon"></div>Cua-Liyue
+				</span>
+				<!-- <span class="Layer_QW_MD map-opts" area="MD" itemtype="TX">
+					<div class="img-border"><img src="imgs/icon_67.png" class="map-opts-icon" alt="icon"></div>青蛙-Mond
 				</span> -->
 				<!-- <span class="Layer_QW_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_67.png" class="map-opts-icon" alt="icon"></div>青蛙-蒙德
-				</span> -->
-				<!-- <span class="Layer_QW_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_68.png" class="map-opts-icon" alt="icon"></div>青蛙-璃月
+					<div class="img-border"><img src="imgs/icon_68.png" class="map-opts-icon" alt="icon"></div>青蛙-Liyue
 				</span> -->
 				<!-- <span class="Layer_TTH_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_69.png" class="map-opts-icon" alt="icon"></div>甜甜花-蒙德
+					<div class="img-border"><img src="imgs/icon_69.png" class="map-opts-icon" alt="icon"></div>甜甜花-Mond
 				</span> -->
 				<!-- <span class="Layer_TTH_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_70.png" class="map-opts-icon" alt="icon"></div>甜甜花-璃月
+					<div class="img-border"><img src="imgs/icon_70.png" class="map-opts-icon" alt="icon"></div>甜甜花-Liyue
 				</span> -->
 				<!-- <span class="Layer_BH_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_71.png" class="map-opts-icon" alt="icon"></div>薄荷-蒙德
+					<div class="img-border"><img src="imgs/icon_71.png" class="map-opts-icon" alt="icon"></div>薄荷-Mond
 				</span> -->
 				<!-- <span class="Layer_BH_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_72.png" class="map-opts-icon" alt="icon"></div>薄荷-璃月
+					<div class="img-border"><img src="imgs/icon_72.png" class="map-opts-icon" alt="icon"></div>薄荷-Liyue
 				</span> -->
 				<span class="Layer_SongR_MD map-opts" area="MD" itemtype="SC">
-					<div class="img-border"><img src="imgs/icon_73.png" class="map-opts-icon" alt="icon"></div>松茸-蒙德
+					<div class="img-border"><img src="imgs/icon_73.png" class="map-opts-icon" alt="icon"></div>Nhung tùng-Mond
 				</span>
-				<!-- <span class="Layer_SongR_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_74.png" class="map-opts-icon" alt="icon"></div>松茸-璃月
-				</span> -->
+				<span class="Layer_SongR_LY map-opts" area="LY" itemtype="TX">
+					<div class="img-border"><img src="imgs/icon_74.png" class="map-opts-icon" alt="icon"></div>Nhung tùng-Liyue
+				</span>
 				<span class="Layer_ShouR_MD map-opts" area="MD" itemtype="SC">
-					<div class="img-border"><img src="imgs/icon_75.png" class="map-opts-icon" alt="icon"></div>兽肉-蒙德
+					<div class="img-border"><img src="imgs/icon_75.png" class="map-opts-icon" alt="icon"></div>Thịt thú-Mond
 				</span>
 				<span class="Layer_ShouR_LY map-opts" area="LY" itemtype="SC">
-					<div class="img-border"><img src="imgs/icon_76.png" class="map-opts-icon" alt="icon"></div>兽肉-璃月
+					<div class="img-border"><img src="imgs/icon_76.png" class="map-opts-icon" alt="icon"></div>Thịt thú-Liyue
 				</span>
-				<!-- <span class="Layer_QR_MD map-opts" area="MD" itemtype="SC">
-					<div class="img-border"><img src="imgs/icon_77.png" class="map-opts-icon" alt="icon"></div>禽肉-蒙德
-				</span> -->
-				<!-- <span class="Layer_QR_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_78.png" class="map-opts-icon" alt="icon"></div>禽肉-璃月
-				</span> -->
+				<span class="Layer_QR_MD map-opts" area="MD" itemtype="SC">
+					<div class="img-border"><img src="imgs/icon_77.png" class="map-opts-icon" alt="icon"></div>Gia cầm-Mond
+				</span>
+				<span class="Layer_QR_LY map-opts" area="LY" itemtype="TX">
+					<div class="img-border"><img src="imgs/icon_78.png" class="map-opts-icon" alt="icon"></div>Gia cầm-Liyue
+				</span>
 				<!-- <span class="Layer_YR_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_79.png" class="map-opts-icon" alt="icon"></div>鱼肉-蒙德
+					<div class="img-border"><img src="imgs/icon_79.png" class="map-opts-icon" alt="icon"></div>鱼肉-Mond
 				</span> -->
-				<!-- <span class="Layer_YR_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_80.png" class="map-opts-icon" alt="icon"></div>鱼肉-璃月
-				</span> -->
+				<span class="Layer_YR_LY map-opts" area="LY" itemtype="TX">
+					<div class="img-border"><img src="imgs/icon_80.png" class="map-opts-icon" alt="icon"></div>Cá-Liyue
+				</span>
 				<!-- <span class="Layer_BLB_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_81.png" class="map-opts-icon" alt="icon"></div>白萝卜-蒙德
+					<div class="img-border"><img src="imgs/icon_81.png" class="map-opts-icon" alt="icon"></div>白萝卜-Mond
 				</span> -->
 				<!-- <span class="Layer_BLB_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_82.png" class="map-opts-icon" alt="icon"></div>白萝卜-璃月
+					<div class="img-border"><img src="imgs/icon_82.png" class="map-opts-icon" alt="icon"></div>白萝卜-Liyue
 				</span> -->
 				<!-- <span class="Layer_HLB_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_83.png" class="map-opts-icon" alt="icon"></div>胡萝卜-蒙德
+					<div class="img-border"><img src="imgs/icon_83.png" class="map-opts-icon" alt="icon"></div>胡萝卜-Mond
 				</span> -->
 				<!-- <span class="Layer_HLB_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_84.png" class="map-opts-icon" alt="icon"></div>胡萝卜-璃月
+					<div class="img-border"><img src="imgs/icon_84.png" class="map-opts-icon" alt="icon"></div>胡萝卜-Liyue
 				</span> -->
 				<!-- <span class="Layer_MG_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_85.png" class="map-opts-icon" alt="icon"></div>蘑菇-蒙德
+					<div class="img-border"><img src="imgs/icon_85.png" class="map-opts-icon" alt="icon"></div>蘑菇-Mond
 				</span> -->
 				<!-- <span class="Layer_MG_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_86.png" class="map-opts-icon" alt="icon"></div>蘑菇-璃月
+					<div class="img-border"><img src="imgs/icon_86.png" class="map-opts-icon" alt="icon"></div>蘑菇-Liyue
 				</span> -->
 				<!-- <span class="Layer_XYWB_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_87.png" class="map-opts-icon" alt="icon"></div>蜥蜴尾巴-蒙德
+					<div class="img-border"><img src="imgs/icon_87.png" class="map-opts-icon" alt="icon"></div>蜥蜴尾巴-Mond
 				</span> -->
 				<!-- <span class="Layer_XYWB_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_88.png" class="map-opts-icon" alt="icon"></div>蜥蜴尾巴-璃月
+					<div class="img-border"><img src="imgs/icon_88.png" class="map-opts-icon" alt="icon"></div>蜥蜴尾巴-Liyue
 				</span> -->
 				<!-- <span class="Layer_SG_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_89.png" class="map-opts-icon" alt="icon"></div>松果-蒙德
+					<div class="img-border"><img src="imgs/icon_89.png" class="map-opts-icon" alt="icon"></div>松果-Mond
 				</span> -->
 				<!-- <span class="Layer_SG_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_90.png" class="map-opts-icon" alt="icon"></div>松果-璃月
+					<div class="img-border"><img src="imgs/icon_90.png" class="map-opts-icon" alt="icon"></div>松果-Liyue
 				</span> -->
 				<!-- <span class="Layer_SM_MD map-opts" area="MD" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_91.png" class="map-opts-icon" alt="icon"></div>树莓-蒙德
+					<div class="img-border"><img src="imgs/icon_91.png" class="map-opts-icon" alt="icon"></div>树莓-Mond
 				</span> -->
 				<!-- <span class="Layer_SM_LY map-opts" area="LY" itemtype="TX">
-					<div class="img-border"><img src="imgs/icon_92.png" class="map-opts-icon" alt="icon"></div>树莓-璃月
+					<div class="img-border"><img src="imgs/icon_92.png" class="map-opts-icon" alt="icon"></div>树莓-Liyue
 				</span> -->
 				<!-- <span class="Layer_QQR_MD map-opts" area="MD" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_93.png" class="map-opts-icon" alt="icon"></div>丘丘人-蒙德
+					<div class="img-border"><img src="imgs/icon_93.png" class="map-opts-icon" alt="icon"></div>丘丘人-Mond
 				</span> -->
 				<!-- <span class="Layer_QQR_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_94.png" class="map-opts-icon" alt="icon"></div>丘丘人-璃月
+					<div class="img-border"><img src="imgs/icon_94.png" class="map-opts-icon" alt="icon"></div>丘丘人-Liyue
 				</span> -->
 				<!-- <span class="Layer_QQSM_MD map-opts" area="MD" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_95.png" class="map-opts-icon" alt="icon"></div>丘丘萨满-蒙德
+					<div class="img-border"><img src="imgs/icon_95.png" class="map-opts-icon" alt="icon"></div>丘丘萨满-Mond
 				</span> -->
 				<!-- <span class="Layer_QQSM_LY map-opts" area="LY" itemtype="GW">
-					<div class="img-border"><img src="imgs/icon_96.png" class="map-opts-icon" alt="icon"></div>丘丘萨满-璃月
+					<div class="img-border"><img src="imgs/icon_96.png" class="map-opts-icon" alt="icon"></div>丘丘萨满-Liyue
 				</span> -->
 			</div>
 		</div>
 	</div>
 	<div class="bottom-rules">
-		<a href="disclaimer.html" target="_bal" class="disclaimer">免责声明/招募</a>
+		<a href="disclaimer.html" target="_bal" class="disclaimer">Tuyên bố từ chối trách nhiệm / Tuyển dụng</a>
 	</div>
 	<div class="bottom-beian">
-		<a href="http://beian.miit.gov.cn" target="_bal" class="beian">蜀ICP备2020028219号</a>
+		<!-- <a href="http://beian.miit.gov.cn" target="_bal" class="beian">蜀ICP备2020028219号</a> -->
 	</div>
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="leaflet/leaflet.js"></script>
@@ -354,7 +355,7 @@
 	<script>
 		$(".area-list-li-containor").hide();
 		$(".area-list-containor").show();
-		//筛选函数
+		//Chức năng lọc
 		var i_type = "ALL";
 		var area_idx = "MD";
 
@@ -378,7 +379,7 @@
 				}
 			}
 		};
-		//页签和地区选择按钮的样式切换函数
+		//Chức năng chuyển đổi kiểu cho các tab và nút chọn khu vực
 		$(".con-type-label").click(function () {
 			$(".con-type-label").removeClass("on");
 			$(this).addClass("on");
@@ -398,7 +399,7 @@
 				filter();
 			}
 		});
-		//点击筛选项以改变选择器项目
+		//Nhấp vào mục bộ lọc để thay đổi mục bộ chọn
 		$(".options-list .map-opts").click(function () {
 			$(".selector-hint").hide();
 			if ($(this).hasClass("on") == true) {
@@ -411,7 +412,7 @@
 						$(".selector-list-containor p").eq(i).remove();
 					}
 				}
-				//改变地图标记
+				//Thay đổi điểm đánh dấu bản đồ
 				let typeclass = $(this).attr("class");
 				let idx = typeclass.indexOf(" ");
 				let typetext = typeclass.slice(0, idx);
@@ -435,7 +436,7 @@
 						$(".selector-hint").show();
 					}
 				});
-				//改变地图标记
+				//Thay đổi điểm đánh dấu bản đồ
 				let typeclass = $(this).attr("class");
 				let idx = typeclass.indexOf(" ");
 				let typetext = typeclass.slice(0, idx);
@@ -449,15 +450,15 @@
 				}
 			})
 		});
-		//初始化筛选器功能
+		//Khởi tạo chức năng bộ lọc
 		$(document).ready(function () {
 			$(".con-type-label:first").trigger("click");
 			$(".reg_log_link").click(function () {
 				alert("即将开放,敬请期待！");
 			})
 
-			// 复制的方法
-			function copyText(text, callback) { // text: 要复制的内容， callback: 回调
+			// Sao chép phương pháp
+			function copyText(text, callback) { // text: Sao chép cái gì, callback: Gọi lại
 				var tag = document.createElement('input');
 				tag.setAttribute('id', 'cp_hgz_input');
 				tag.value = text;
@@ -470,7 +471,7 @@
 				}
 			}
 
-			//下载保存数据并复制到剪切板
+			//Tải xuống và lưu dữ liệu và sao chép vào khay nhớ tạm
 			$(".save-btn").click(function () {
 				var markedLog = []
 				for (var i = 0; i < 29; i++) {
@@ -502,7 +503,7 @@
 				toolresult = JSON.stringify(markedLog1);
 				var texts = toolresult
 				copyText(texts, function () {
-					alert('复制成功 \n复制内容' + texts)
+					alert('Sao chép thành công \nSao chép nội dung' + texts)
 				})
 				console.log(toolresult);
 			})
@@ -517,13 +518,13 @@
 			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 				$(".bottom-beian").hide();
 				$(".fold-btn").css("background", "url(imgs/con_img/fold_open.png)");
-				//几项M端的适配
+				//Một số chuyển thể M-terminal
 				$(".control-containor").css("transform-origin", "0% 0% 0");
 				$(".control-containor").css("transform", "scale(0.5)");
 				// $(".control-containor").css("right", "-255px");
 				// $(".control-containor").css("width", "300px");
 				// $(".fold-btn").css("left", "-55px");
-				//面板切换动画(m)
+				//Hoạt ảnh chuyển đổi bảng điều khiển(m)
 				$(".fold-btn").click(function () {
 					if (statu == 1) {
 						$(".area-list-containor").show();
@@ -619,9 +620,9 @@
 				$(".fold-btn").css("background-image", "url(imgs/con_img/fold.png)");
 			}
 		});
-		//防止IOS的缩放函数
+		//Ngăn chặn chức năng mở rộng quy mô IOS
 		window.onload = function () {
-			// 阻止双击放大
+			// Ngăn nhấp đúp để phóng to
 			var lastTouchEnd = 0;
 			document.addEventListener('touchstart', function (event) {
 				if (event.touches.length > 1) {
@@ -635,7 +636,7 @@
 				}
 				lastTouchEnd = now;
 			}, false);
-			// 阻止双指放大
+			// Ngăn thu phóng chụm
 			document.addEventListener('gesturestart', function (event) {
 				event.preventDefault();
 			});
