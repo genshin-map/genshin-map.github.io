@@ -64,6 +64,7 @@ body,
 .save-btn {
     width: 40px;
     height: 50px;
+    background: url(../imgs/con_img/save.png) no-repeat;
     z-index: 200;
 }
 
@@ -713,6 +714,13 @@ body,
 
 .leaflet-shadow-pane .iconKW {
     transform: rotate(45deg);
+}
+
+.zanzhu{
+    font-family: font;
+    margin-top: 0px;
+    font-size: 22px;
+    color: #2B4153;
 }
 
 @media screen and (max-width: 750px) {

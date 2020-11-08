@@ -6,7 +6,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 }
 
 body {
-    font-family: "Microsoft YaHei", '\5FAE\8F6F\96C5\9ED1';
+    font-family: Roboto,Helvetica,Arial,sans-serif;
 }
 
 body, html {
@@ -388,4 +388,3 @@ sub {
     background: url(../imgs/l7-on.png) no-repeat center;
     background-size: 67px 80px;
 }
-
