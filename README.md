@@ -1,0 +1,1 @@
+# genshin-map.github.io
