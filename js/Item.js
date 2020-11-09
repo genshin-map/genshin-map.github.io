@@ -12,7 +12,7 @@ var map = L.map("map", {
     zoomControl: false
 });
 L.control.attribution({
-    prefix: "<a href='https://leafletjs.com/'>米游社空荧酒馆</a>"
+    prefix: "<a href='https://leafletjs.com/'>Quán rượu Miyoushe Kongying</a>"
 }).addTo(map);
 L.control.zoom({
     zoomInTitle: '+',
@@ -449,42 +449,42 @@ L.geoJSON(JS_ZWCLR_LY, {
 }).addTo(Layer_ZWCLR_LY);
 
 var overlays = {
-    "<span class='ST-OPT map-opts'>风神瞳</span>": Layer_FST,
-    "<span class='ST-OPT map-opts'>岩神瞳</span>": Layer_YST,
-    "<span class='DLK-OPT map-opts'>蒙德</span>": Layer_DLY_MD,
-    "<span class='DLK-OPT map-opts'>璃月</span>": Layer_DLY_LY,
-    "<span class='KW-LY-OPT map-opts'>水晶矿</span>": Layer_SJK_LY,
-    "<span class='KW-LY-OPT map-opts'>白铁矿</span>": Layer_BTK_LY,
-    "<span class='KW-MD-OPT map-opts'>水晶矿</span>": Layer_SJK_MD,
-    "<span class='KW-MD-OPT map-opts'>白铁矿</span>": Layer_BTK_MD,
-    "<span class='CJW-OPT map-opts'>绝云椒椒</span>": Layer_JYJJ,
-    "<span class='CJW-OPT map-opts'>霓裳花</span>": Layer_NSH,
-    "<span class='CJW-OPT map-opts'>琉璃百合</span>": Layer_LLBH,
-    "<span class='CJW-OPT map-opts'>夜泊石</span>": Layer_YPS,
-    "<span class='CJW-OPT map-opts'>石珀</span>": Layer_SP,
-    "<span class='CJW-MD-OPT map-opts'>钩钩果</span>": Layer_GGG,
-    "<span class='CJW-MD-OPT map-opts'>嘟嘟莲</span>": Layer_DDL,
-    "<span class='CJW-MD-OPT map-opts'>落落梅</span>": Layer_LLM,
-    "<span class='CJW-MD-OPT map-opts'>塞西莉亚花</span>": Layer_SXLYH,
-    "<span class='CJW-MD-OPT map-opts'>慕风蘑菇</span>": Layer_MFMG,
-    "<span class='CJW-MD-OPT map-opts'>风车菊</span>": Layer_FCJ,
-    "<span class='CJW-MD-OPT map-opts'>蒲公英籽</span>": Layer_PGYZ,
-    "<span class='JYG-LY-OPT map-opts'>遗迹守卫</span>": Layer_YJSW_LY,
-    "<span class='JYG-LY-OPT map-opts'>遗迹猎者</span>": Layer_YJLZ_LY,
-    "<span class='JYG-LY-OPT map-opts'>大型丘丘人</span>": Layer_DXQQR_LY,
-    "<span class='JYG-LY-OPT map-opts'>深渊法师</span>": Layer_SYFS_LY,
-    "<span class='JYG-LY-OPT map-opts'>债务处理人</span>": Layer_ZWCLR_LY,
-    "<span class='JYG-LY-OPT map-opts'>雷莹术士</span>": Layer_LYSS_LY,
+    "<span class='ST-OPT map-opts'>Phong thần đồng</span>": Layer_FST,
+    "<span class='ST-OPT map-opts'>Nham thần đồng</span>": Layer_YST,
+    "<span class='DLK-OPT map-opts'>Mond</span>": Layer_DLY_MD,
+    "<span class='DLK-OPT map-opts'>Liyue</span>": Layer_DLY_LY,
+    "<span class='KW-LY-OPT map-opts'>Mỏ pha lê</span>": Layer_SJK_LY,
+    "<span class='KW-LY-OPT map-opts'>Mỏ sắt</span>": Layer_BTK_LY,
+    "<span class='KW-MD-OPT map-opts'>Mỏ pha lê</span>": Layer_SJK_MD,
+    "<span class='KW-MD-OPT map-opts'>Mỏ sắt</span>": Layer_BTK_MD,
+    "<span class='CJW-OPT map-opts'>Ớt Tuyệt Vân</span>": Layer_JYJJ,
+    "<span class='CJW-OPT map-opts'>Hoa Nghê Thường</span>": Layer_NSH,
+    "<span class='CJW-OPT map-opts'>Bách Hợp Lưu Ly</span>": Layer_LLBH,
+    "<span class='CJW-OPT map-opts'>Dạ Thạch Phách</span>": Layer_YPS,
+    "<span class='CJW-OPT map-opts'>Thạch Phách</span>": Layer_SP,
+    "<span class='CJW-MD-OPT map-opts'>Quả Móc Câu</span>": Layer_GGG,
+    "<span class='CJW-MD-OPT map-opts'>Hoa Calla Lily</span>": Layer_DDL,
+    "<span class='CJW-MD-OPT map-opts'>Quả Dâu Đỏ</span>": Layer_LLM,
+    "<span class='CJW-MD-OPT map-opts'>Hoa Cecilia</span>": Layer_SXLYH,
+    "<span class='CJW-MD-OPT map-opts'>Nấm Rơm Gió</span>": Layer_MFMG,
+    "<span class='CJW-MD-OPT map-opts'>Cúc Cánh Quạt</span>": Layer_FCJ,
+    "<span class='CJW-MD-OPT map-opts'>Hạt Bồ Công Anh</span>": Layer_PGYZ,
+    "<span class='JYG-LY-OPT map-opts'>Thủ vệ di tích</span>": Layer_YJSW_LY,
+    "<span class='JYG-LY-OPT map-opts'>Thủ vệ biết bay</span>": Layer_YJLZ_LY,
+    "<span class='JYG-LY-OPT map-opts'>Bạo Đồ Hilichurl</span>": Layer_DXQQR_LY,
+    "<span class='JYG-LY-OPT map-opts'>Pháp sư</span>": Layer_SYFS_LY,
+    "<span class='JYG-LY-OPT map-opts'>Người xử lý nợ</span>": Layer_ZWCLR_LY,
+    "<span class='JYG-LY-OPT map-opts'>Thuật sĩ cincin lôi</span>": Layer_LYSS_LY,
 };
 
 L.control.layers(null, overlays).addTo(map);
-$(".leaflet-control-layers-overlays label").eq(0).before('<a class="ST-OPT assortType">神瞳</a>');
-$(".leaflet-control-layers-overlays label").eq(2).before('<a class="DLK-OPT assortType">地灵龛</a>');
-$(".leaflet-control-layers-overlays label").eq(4).before('<a class="KW-LY-OPT assortType">矿物——璃月</a>');
-$(".leaflet-control-layers-overlays label").eq(6).before('<a class="KW-MD-OPT assortType">矿物——蒙德</a>');
-$(".leaflet-control-layers-overlays label").eq(8).before('<a class="CJW-OPT assortType">采集物——璃月</a>');
-$(".leaflet-control-layers-overlays label").eq(13).before('<a class="CJW-MD-OPT assortType">采集物——蒙德</a>');
-$(".leaflet-control-layers-overlays label").eq(20).before('<a class="JYG-LY-OPT assortType">精英怪——璃月</a>');
+$(".leaflet-control-layers-overlays label").eq(0).before('<a class="ST-OPT assortType">Thần đồng</a>');
+$(".leaflet-control-layers-overlays label").eq(2).before('<a class="DLK-OPT assortType">Nguyên liệu</a>');
+$(".leaflet-control-layers-overlays label").eq(4).before('<a class="KW-LY-OPT assortType">Mineral-Liyue</a>');
+$(".leaflet-control-layers-overlays label").eq(6).before('<a class="KW-MD-OPT assortType">Mineral-Mond</a>');
+$(".leaflet-control-layers-overlays label").eq(8).before('<a class="CJW-OPT assortType">Collection-Liyue</a>');
+$(".leaflet-control-layers-overlays label").eq(13).before('<a class="CJW-MD-OPT assortType">Collection-Mond</a>');
+$(".leaflet-control-layers-overlays label").eq(20).before('<a class="JYG-LY-OPT assortType">Quái vật lớn-Liyue</a>');
 map.on('click', function (e) {
     console.log(e.latlng);
 });

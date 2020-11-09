@@ -31,7 +31,7 @@ L.tileLayer.t = function () {
 	return new L.TileLayer.T();
 }
 map.addLayer(L.tileLayer.t());
-//水印
+//Chữ ký ảnh
 // L.TileLayer.T1 = L.TileLayer.extend({
 // 	getTileUrl: function (coords) {
 // 		x = coords.x
@@ -50,7 +50,7 @@ map.addLayer(L.tileLayer.t());
 // 	return new L.TileLayer.T1();
 // }
 // map.addLayer(L.tileLayer.t1());
-//各个坐标的分类类别的初始化
+//Khởi tạo loại phân loại của mỗi tọa độ
 var LayerMap = {
 	Layer_FST: L.layerGroup(),
 	Layer_YST: L.layerGroup(),
@@ -171,10 +171,10 @@ var LayerMap = {
 	Layer_QQSM_LY: L.markerClusterGroup(),
 }
 
-//定义各个坐标使用的图标
+//Xác định các biểu tượng được sử dụng cho mỗi tọa độ
 function getIconInfo(Name) {
 	switch (Name) {
-		case "ST": { //神瞳
+		case "ST": { //Thần
 			var icon_base = L.Icon.extend({
 				options: {
 					iconSize: [24, 24], // size of the icon
@@ -186,7 +186,7 @@ function getIconInfo(Name) {
 			});
 			return icon_base;
 		}
-		case "DLK": { //地灵龛
+		case "DLK": { //Nguyên liệu
 			var icon_base = L.Icon.extend({
 				options: {
 					shadowUrl: "./imgs/loc_notfind.svg",
@@ -199,7 +199,7 @@ function getIconInfo(Name) {
 			});
 			return icon_base;
 		}
-		case "TC": { //特产
+		case "TC": { //Chuyên môn
 			var icon_base = L.Icon.extend({
 				options: {
 					shadowUrl: "./imgs/loc_notfind_black.svg",
@@ -212,7 +212,7 @@ function getIconInfo(Name) {
 			});
 			return icon_base;
 		}
-		case "KW": { //矿物
+		case "KW": { //Khoáng sản
 			var icon_base = L.Icon.extend({
 				options: {
 					shadowUrl: "./imgs/loc_stonenot.svg",
@@ -225,7 +225,7 @@ function getIconInfo(Name) {
 			});
 			return icon_base;
 		}
-		case "JYG": { //精英怪
+		case "JYG": { //Quái vật lớn
 			var icon_base = L.Icon.extend({
 				options: {
 					shadowUrl: "./imgs/loc_notfind.svg",
@@ -238,7 +238,7 @@ function getIconInfo(Name) {
 			});
 			return icon_base;
 		}
-		case "PTG": { //普通怪
+		case "PTG": { //Quái vật nhỏ
 			var icon_base = L.Icon.extend({
 				options: {
 					shadowUrl: "./imgs/loc_notfind.svg",
@@ -251,7 +251,7 @@ function getIconInfo(Name) {
 			});
 			return icon_base;
 		}
-		case "BX": { // 宝箱
+		case "BX": { // Rương kho báu
 			var icon_base = L.Icon.extend({
 				options: {
 					shadowUrl: "./imgs/loc_notfind.svg",
@@ -264,7 +264,7 @@ function getIconInfo(Name) {
 			});
 			return icon_base;
 		}
-		default: { //默认
+		default: { //Mặc định
 			var icon_base = L.Icon.extend({
 				options: {
 					shadowUrl: "./imgs/loc_notfind.svg",
@@ -310,7 +310,7 @@ function change() {
 	}
 };
 
-//添加坐标点击信息
+//Thêm thông tin nhấp chuột tọa độ
 function onEachFeature(feature, layer) {
 	// var layerNumber = localStorage.getItem("layerNumber");
 	// var key = layerNumber + "_" + feature.id;
@@ -335,7 +335,7 @@ function closePop() {
 	$(".leaflet-popup-close-button")[0].click();
 }
 
-//定义分类的数组，分别对应 物品层，物品Json名，物品icon类型，新增时在对应数组后增加对象即可
+//Xác định mảng danh mục, tương ứng với lớp mục, tên Json mục, kiểu biểu tượng mục, khi thêm hãy thêm các đối tượng vào sau mảng tương ứng
 var typearray = [
 	[LayerMap["Layer_FST"], JS_FST, "ST"],
 	[LayerMap["Layer_YST"], JS_YST, "ST"],
@@ -436,7 +436,7 @@ var typearray = [
 	[LayerMap["Layer_QQSM_LY"], JS_QQSM_LY, "GW"],
 ];
 
-//标记方法
+//Phương pháp đánh dấu
 var markers = {};
 
 function MarkPoint(element) {
@@ -488,7 +488,7 @@ function MarkPoint(element) {
 	}
 }
 
-//初始化各个坐标
+//Khởi tạo từng tọa độ
 for (let i = 0; i < typearray.length; i++) {
 	localStorage.setItem("layerNumber", i);
 	var currentIcon = getIconInfo(typearray[i][2]);
@@ -536,7 +536,7 @@ function dealIcon(target, key) {
 	return target
 }
 
-//定义筛选器项目
+//Xác định các mục bộ lọc
 // var overlays = {
 // 	"<span class='Layer_FST map-opts'>风神瞳</span>": Layer_FST,
 // 	"<span class='Layer_YST map-opts'>岩神瞳</span>": Layer_YST,
@@ -567,7 +567,7 @@ function dealIcon(target, key) {
 // 	"<span class='Layer_BX_MD map-opts'>宝箱—蒙德</span>": Layer_BX_MD,
 // 	"<span class='Layer_BX_LY map-opts'>宝箱—璃月</span>": Layer_BX_LY,
 // };
-// //添加筛选器
+// //Thêm bộ lọc
 // L.control.layers(null, overlays, {
 // 	collapsed: false,
 // }).addTo(map);
@@ -579,7 +579,7 @@ map.on('popupopen', function (e) {
 	var key = className.substring(5, className.length);
 	var markedFlag = localStorage.getItem(key);
 	var switchClass = (!markedFlag) ? "myPopSwitchTodo" : "myPopSwitchDone";
-	var switchText = (!markedFlag) ? "Hoàn tác" : "Hoàn thành";
+	var switchText = (!markedFlag) ? "TODO" : "DONE";
 	popupHtml = `
 	<div class="myPopContainer">
 		<div class="myPopTitle">
@@ -594,8 +594,8 @@ map.on('popupopen', function (e) {
 			<img src=comment_png/${key}.jpg onerror="javascript:$(\'.myPopComment,.myPopPicture\').addClass(\'disable\');$(\'.myPopComment\').css({\'cursor\': \'default\'})">
 		</div>
 		<div class="${switchClass}" onclick="MarkPoint(this)" data-key="${key}">
-			<p class="switchOff">Hoàn tác</p>
-			<p class="switchOn">Hoàn thành</p>
+			<p class="switchOff">TODO</p>
+			<p class="switchOn">DONE</p>
 			<div class="switchButton">
 				<div class="switchButtonIcon">
 					<p>${switchText}</p>
