@@ -4,6 +4,41 @@ body {
 .danjixiazai {
     display: none;
 }
+.person-data {
+    display: flex;
+    width: 100%;
+}
+.person-data-import{
+	margin-right: auto
+}
+.person-data-import input {
+    display: none;
+}
+.person-data-import label {
+    display: inline-block;
+    border: 1px solid #346cb0;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    color: #346cb0;
+}
+button.upload-btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #363642;
+    text-align: center;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    color: #fff;
+    background-color: #346cb0;
+    border-color: #346cb0;
+}
 
 ul.con-type-label-containor li.con-type-label.lable6 {
     white-space: nowrap;
