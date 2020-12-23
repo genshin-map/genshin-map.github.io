@@ -49,3 +49,7 @@ ul.con-type-label-containor li.con-type-label.lable6 {
 	white-space: nowrap;
     text-overflow: ellipsis;
 }
+.disclaimer {
+    padding: 5px 5px;
+    display: block;
+}
