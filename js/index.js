@@ -370,7 +370,7 @@ function onEachFeature(feature, layer) {
     // popupHtml += '<div class="myPopPicture">';
     // popupHtml += '<img src=comment_png/' + key + '.jpg onerror="javascript:$(\'.myPopComment,.myPopPicture\').addClass(\'disable\');$(\'.myPopComment\').css({\'cursor\': \'default\'})">';
     // popupHtml += '</div>';
-    // popupHtml += '<div class="' + switchClass + '" onclick="MarkPoint(this)" data-key="' + key + '"><p class="switchOff">TDONE</p><p class="switchOn">已完成</p><div class="switchButton"><div class="switchButtonIcon"><p>TDONE</p></div></div></div>';
+    // popupHtml += '<div class="' + switchClass + '" onclick="MarkPoint(this)" data-key="' + key + '"><p class="switchOff">TODO</p><p class="switchOn">DONE</p><div class="switchButton"><div class="switchButtonIcon"><p>TODO</p></div></div></div>';
     // popupHtml += '<div class="tipcard"></div>'
     // popupHtml += '</div>';
     layer.bindPopup();
@@ -608,13 +608,13 @@ function MarkPoint(element) {
         that.addClass("myPopSwitchDone");
         that.removeClass("myPopSwitchTodo");
         setTimeout(function() {
-            that.find(".switchButton p").html("已完成");
+            that.find(".switchButton p").html("DONE");
         }, 100);
     } else {
         that.addClass("myPopSwitchTodo");
         that.removeClass("myPopSwitchDone");
         setTimeout(function() {
-            that.find(".switchButton p").html("TDONE");
+            that.find(".switchButton p").html("TODO");
         }, 100);
     }
     setTimeout(function() {
@@ -759,7 +759,7 @@ map.on('popupopen', function(e) {
     var key = className.substring(5, className.length);
     var markedFlag = localStorage.getItem(key);
     var switchClass = (!markedFlag) ? "myPopSwitchTodo" : "myPopSwitchDone";
-    var switchText = (!markedFlag) ? "TDONE" : "已完成";
+    var switchText = (!markedFlag) ? "TODO" : "DONE";
     const timeValue = localStorage.getItem('done_time_' + key)
 
     var popupHtml = `
@@ -778,8 +778,8 @@ map.on('popupopen', function(e) {
 			<img src=comment_png/${key}.jpg onerror="javascript:$(\'.myPopComment,.myPopPicture\').addClass(\'disable\');$(\'.myPopComment\').css({\'cursor\': \'default\'})">
 		</div>
 		<div class="${switchClass}" onclick="MarkPoint(this)" data-key="${key}">
-			<p class="switchOff">TDONE</p>
-			<p class="switchOn">已完成</p>
+			<p class="switchOff">TODO</p>
+			<p class="switchOn">DONE</p>
 			<div class="switchButton">
 				<div class="switchButtonIcon">
 					<p>${switchText}</p>
