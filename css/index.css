@@ -1,8 +1,3 @@
-@font-face {
-    font-family: font;
-    src: url(hywh_thin.ttf);
-}
-
 html,
 body,
 #map {
@@ -129,7 +124,6 @@ body,
     right: -415px;
     width: 431px;
     height: 912px;
-    font-family: font;
     transform-origin: 0% 0% 0;
     transform: scale(0.75);
     -webkit-transform: scale(0.75);
@@ -455,7 +449,6 @@ body,
     text-align: center;
     color: #fff;
     font-size: 20px;
-    font-family: font;
     text-indent: 10px;
     margin: 0 5px 5px 0;
     cursor: pointer;
@@ -495,7 +488,6 @@ body,
 
 .myPopName {
     position: block;
-    font-family: font;
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
@@ -521,7 +513,6 @@ body,
     width: 100%;
     margin: 14px 0 0 0;
     padding: 0 37px 0 17px;
-    font-family: font;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -687,7 +678,6 @@ body,
     position: absolute;
     width: 80px;
     letter-spacing: 4px;
-    font-family: font;
     font-size: 16px;
     font-weight: bold;
     color: #C5B79D;
@@ -700,7 +690,6 @@ body,
     position: absolute;
     width: 80px;
     letter-spacing: 4px;
-    font-family: font;
     font-size: 16px;
     font-weight: bold;
     color: #C5B79D;
@@ -763,7 +752,6 @@ body,
     position: absolute;
     width: 80px;
     letter-spacing: 4px;
-    font-family: font;
     font-size: 16px;
     font-weight: bold;
     top: -2px;
@@ -777,7 +765,6 @@ body,
 }
 
 .zanzhu {
-    font-family: font;
     margin-top: 3px;
     font-size: 22px;
     color: #2B4153;
