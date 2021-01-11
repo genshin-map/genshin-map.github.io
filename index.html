@@ -405,16 +405,39 @@
 				<span class="Layer_SYWD_LY map-opts" area="LY" itemtype="TX">
 					<div class="img-border"><img src="imgs/icon_118.png" class="map-opts-icon" alt="icon"></div>Thánh div vật-Liyue
 				</span>
-				<span class="Layer_XYKS map-opts" area="MD" itemtype="KW">
+				<span class="Layer_XYKS map-opts" area="MD" itemtype="KW" style="display: none;">
 					<div class="img-border"><img src="imgs/icon_124.png" class="map-opts-icon" alt="icon"></div>Quặng bạc sao
 				</span>
-
+				<span class="Layer_SX_MD map-opts" area="MD" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_125.png" class="map-opts-icon" alt="icon"></div>Thất thiên thần tượng - Mond
+				</span>
+				<span class="Layer_SX_LY map-opts" area="LY" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_126.png" class="map-opts-icon" alt="icon"></div>Thất thiên thần tượng - Nham
+				</span>
+				<span class="Layer_CSD_MD map-opts" area="MD" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_127.png" class="map-opts-icon" alt="icon"></div>Điểm dịch chuyển - Mond
+				</span>
+				<span class="Layer_CSD_LY map-opts" area="LY" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_128.png" class="map-opts-icon" alt="icon"></div>Điểm dịch chuyển - Nham
+				</span>
+				<span class="Layer_MJ_MD map-opts" area="MD" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_129.png" class="map-opts-icon" alt="icon"></div>Huyền bí-Mond
+				</span>
+				<span class="Layer_MJ_LY map-opts" area="LY" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_130.png" class="map-opts-icon" alt="icon"></div>Huyền bí-Liyue
+				</span>
+				<span class="Layer_FB_MD map-opts" area="MD" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_131.png" class="map-opts-icon" alt="icon"></div>Copy-Mond
+				</span>
+				<span class="Layer_FB_LY map-opts" area="LY" itemtype="" style="display: none;!important">
+					<div class="img-border"><img src="imgs/icon_132.png" class="map-opts-icon" alt="icon"></div>Copy-Liyue
+				</span>
 			</div>
 		</div>
 	</div>
 	<div class="bottom-rules">
 		<!-- <a href="https://bit.ly/34DnJyb" title="Nạp hộ game Genshin giá rẻ" target="_blank" class="disclaimer" style="font-size: 1rem;">[QC] Nạp game</a> -->
-		<a href="https://www.facebook.com/100937258506438" target="_bal" class="disclaimer" style="font-size: 1rem;">V1.2 (95%)</a>
+		<a href="https://www.facebook.com/100937258506438" target="_bal" class="disclaimer" style="font-size: 1rem;">V1.2 (96%)</a>
 		<a href="https://nhatkythuthuat.com/threads/13582/" target="_bal" class="disclaimer" style="font-size: 1rem;">Tin tức, Mẹo vặt Mỗi ngày</a>
 		<a href="https://genshin.nhatkythuthuat.com/dong-gop/" target="_bal" class="disclaimer" style="font-size: 1rem;">Chỉnh sửa Map</a>
 	</div>
@@ -527,9 +550,24 @@
 		});
 		//Khởi tạo chức năng bộ lọc
 		$(document).ready(function () {
+
+			map.addLayer(LayerMap["Layer_SX_MD"]);
+			map.addLayer(LayerMap["Layer_SX_LY"]);
+			map.addLayer(LayerMap["Layer_CSD_MD"]);
+			map.addLayer(LayerMap["Layer_CSD_LY"]);
+			map.addLayer(LayerMap["Layer_FB_MD"]);
+			map.addLayer(LayerMap["Layer_FB_LY"]);
+			map.addLayer(LayerMap["Layer_MJ_MD"]);
+			map.addLayer(LayerMap["Layer_MJ_LY"]);
+
+			/*if (getToken()) {
+				console.log("Chế độ online token: " + tokenPara)
+			} else {
+				console.log("Chế độ ngoại tuyến")
+			}*/
 			$(".con-type-label:first").trigger("click");
 			$(".reg_log_link").click(function () {
-				alert("即将开放,敬请期待！");
+				alert("Sắp có, hãy chú ý theo dõi！");
 			})
 
 			// Sao chép phương pháp
@@ -753,7 +791,32 @@
 			document.addEventListener('gesturestart', function (event) {
 				event.preventDefault();
 			});
+
+			/*if (getCookie("gitee_Token") != "notfound") {
+				$(".login-info")
+					.removeClass('reg_log_link').text("Đang tải...")
+				getGitUser(function (res) {
+					localStorage.setItem("user", JSON.stringify(res))
+					console.log('res', res)
+					$(".login-info")
+						.removeClass('reg_log_link')
+						.html(`
+				<div class="avatar-wrapper">
+					<img width="50" height="50" src="${res.avatar_url}" />
+					<div style="margin-left: 10px">${res.name}</div>
+				</div>`)
+				})
+			}*/
 		}
+		$("body").click(function () {
+			$(".savePop").hide();
+		});
+		$(".save-btn").click(function (event) {
+			event.stopPropagation();
+		});
+		$(".savePop").click(function (event) {
+			event.stopPropagation();
+		});
 	</script>
 </body>
 
