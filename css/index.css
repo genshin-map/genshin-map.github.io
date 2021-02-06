@@ -4,11 +4,32 @@ body,
     height: 100%;
 }
 
-.myPopIssue{
-        display: none;
+.myPopIssue {
+    display: none;
 }
 
-.loading{
+.switch_FB {
+    z-index: 4000;
+    display: block;
+    position: absolute;
+    background-image: url("../imgs/con_img/switch_on.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 170px;
+    height: 30px;
+    left: 20px;
+    bottom: 100px;
+    cursor: pointer;
+}
+
+.YQLJ {
+    display: block;
+    margin: auto;
+    width: 190px;
+    height: 50px;
+}
+
+.loading {
     z-index: 4000;
     display: block;
     position: absolute;
@@ -780,9 +801,10 @@ body,
         /*兼容-moz-引擎浏览器*/
     }
 }
+
 .time-wrapper {
     font-size: 18px;
-    padding: 0 17px;   
+    padding: 0 17px;
     font-weight: bold;
     margin-top: 10px;
 

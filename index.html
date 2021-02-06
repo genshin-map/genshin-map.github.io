@@ -13,7 +13,7 @@
     <meta property="og:image" content="imgs/cover.png" />
     <meta property="og:title" content="Bản đồ Genshin - Genshin Impact map" />
     <meta property="og:description" content="Bản đồ Genshin, Bản đồ Genshin Impact, Bản đồ rương Genshin Impact, Genshin map, Genshin Impact map, Genshin Impact chest map, Genshin Impact map vn" />
-
+    <link rel="icon" type="image/png" href="favicon.png">
 	<link rel="stylesheet" type="text/css" href="leaflet/leaflet.css?v=0121" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css?v=0121" />
 	<link rel="stylesheet" type="text/css" href="css/index.css?v=0121" />
@@ -49,6 +49,8 @@
 </head>
 
 <body>
+	<div class="switch_FB"></div>
+	<div class="loading" style="display: none;"></div>
 	<div id='map'></div>
 	<div class="danjixiazai"></div>
 	<!-- Bộ lọc -->
@@ -684,22 +686,36 @@
 				fr.readAsText(files.item(0));
 			})
 
-			//单机跳转
+			//Nhảy độc lập
 			$(".danjixiazai").click(function () {
 				window.event.returnValue = false;
 				window.location.href = 'main.html';
 			})
 
 			var statu = 1;
+
 			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+
 				$(".bottom-beian").hide();
 				$(".fold-btn").css("background", "url(imgs/con_img/fold_open.png)");
+
 				//Một số chuyển thể M-terminal
 				$(".control-containor").css("transform-origin", "0% 0% 0");
 				$(".control-containor").css("transform", "scale(0.5)");
+				// $(".genshin_pub").css("transform-origin", "100% 100% 0");
+				// $(".genshin_pub").css("transform", "scale(0.5)");
+				// $(".genshin_pub").css("bottom", "20px");
+				$(".danjixiazai").css("transform-origin", "0% 0% 0");
+				$(".danjixiazai").css("transform", "scale(0.5)");
+				$(".danjixiazai").css("left", "35px");
+				$(".switch_FB").css("transform-origin", "0% 100% 0");
+				$(".switch_FB").css("transform", "scale(0.5)");
+				$(".switch_FB").css("left", "5px");
+				$(".switch_FB").css("bottom", "25px");
 				// $(".control-containor").css("right", "-255px");
 				// $(".control-containor").css("width", "300px");
 				// $(".fold-btn").css("left", "-55px");
+
 				//Hoạt ảnh chuyển đổi bảng điều khiển(m)
 				$(".fold-btn").click(function () {
 					if (statu == 1) {
@@ -842,6 +858,31 @@
 		$(".savePop").click(function (event) {
 			event.stopPropagation();
 		});
+		var csd = true;
+		$(".switch_FB").click(function () {
+			csd = !csd;
+			if (csd) {
+				$(".switch_FB").css("background-image", "url(imgs/con_img/switch_on.png)");
+				map.addLayer(LayerMap["Layer_SX_MD"]);
+				map.addLayer(LayerMap["Layer_SX_LY"]);
+				map.addLayer(LayerMap["Layer_CSD_MD"]);
+				map.addLayer(LayerMap["Layer_CSD_LY"]);
+				map.addLayer(LayerMap["Layer_FB_MD"]);
+				map.addLayer(LayerMap["Layer_FB_LY"]);
+				map.addLayer(LayerMap["Layer_MJ_MD"]);
+				map.addLayer(LayerMap["Layer_MJ_LY"]);
+			} else {
+				$(".switch_FB").css("background-image", "url(imgs/con_img/switch_off.png)");
+				map.removeLayer(LayerMap["Layer_SX_MD"]);
+				map.removeLayer(LayerMap["Layer_SX_LY"]);
+				map.removeLayer(LayerMap["Layer_CSD_MD"]);
+				map.removeLayer(LayerMap["Layer_CSD_LY"]);
+				map.removeLayer(LayerMap["Layer_FB_MD"]);
+				map.removeLayer(LayerMap["Layer_FB_LY"]);
+				map.removeLayer(LayerMap["Layer_MJ_MD"]);
+				map.removeLayer(LayerMap["Layer_MJ_LY"]);
+			}
+		})
 	</script>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=2238542769737427&autoLogAppEvents=1" nonce="sHmgTTVA"></script>
 </body>
