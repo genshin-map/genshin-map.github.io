@@ -14,7 +14,7 @@ var map = L.map("map", {
     zoomControl: false
 });
 L.control.attribution({
-    prefix: "<a href='https://bbs.mihoyo.com/ys/article/1328298' target='_blank'>Hướng dẫn sử dụng / Miyoushe Kongying Tavern</a>"
+    prefix: "<a href='https://nhatkythuthuat.com/threads/13718/' target='_blank'>Hướng dẫn sử dụng</a>"
 }).addTo(map);
 L.control.zoom({
     zoomInTitle: '+',
