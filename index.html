@@ -14,12 +14,12 @@
     <meta property="og:title" content="Bản đồ Genshin - Genshin Impact map" />
     <meta property="og:description" content="Bản đồ Genshin, Bản đồ Genshin Impact, Bản đồ rương Genshin Impact, Genshin map, Genshin Impact map, Genshin Impact chest map, Genshin Impact map vn" />
     <link rel="icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" type="text/css" href="leaflet/leaflet.css?v=0121" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css?v=0121" />
-	<link rel="stylesheet" type="text/css" href="css/index.css?v=0121" />
-	<link rel="stylesheet" href="dist/MarkerCluster.css?v=0121" />
-	<link rel="stylesheet" href="dist/MarkerCluster.Default.css?v=0121" />
-	<link rel="stylesheet" type="text/css" href="css/bcat.css?v=0121" />
+	<link rel="stylesheet" type="text/css" href="leaflet/leaflet.css?v=0313" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css?v=0313" />
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=0313" />
+	<link rel="stylesheet" href="dist/MarkerCluster.css?v=0313" />
+	<link rel="stylesheet" href="dist/MarkerCluster.Default.css?v=0313" />
+	<link rel="stylesheet" type="text/css" href="css/bcat.css?v=0313" />
 	
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-555995DXBS"></script>
@@ -52,7 +52,7 @@
 	<div class="switch_FB"></div>
 	<div class="loading" style="display: none;"></div>
 	<div id='map'></div>
-	<div class="danjixiazai"></div>
+	<div class="bc-wish"></div>
 	<!-- Bộ lọc -->
 	<div class="control-containor">
 		<img class="Background" src="imgs/con_img/Content.png">
@@ -689,10 +689,10 @@
 				fr.readAsText(files.item(0));
 			})
 
-			//Nhảy độc lập
-			$(".danjixiazai").click(function () {
+			// Nhảy độc lập
+			$(".bc-wish").click(function () {
 				window.event.returnValue = false;
-				window.location.href = 'main.html';
+				window.location.href = 'https://genshin-map.github.io/wish/';
 			})
 
 			var statu = 1;
