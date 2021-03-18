@@ -893,16 +893,23 @@
 	<script>
 		window.OneSignal = window.OneSignal || [];
 		OneSignal.push(function() {
-			var oneSignal_options = {};
-			oneSignal_options['appId'] = 'dabdad7d-e889-4e5f-a963-58010a087e5d';
-			oneSignal_options['autoRegister'] = true;  
-			oneSignal_options['promptOptions'] = {};
-			oneSignal_options['promptOptions']['actionMessage'] = 'Nhận Tin game, Redeem Code, Thủ thuật, Mẹo vặt Genshin Impact mới nhất.';
-			oneSignal_options['promptOptions']['acceptButtonText'] = 'Đăng ký';
-			oneSignal_options['promptOptions']['cancelButtonText'] = 'Bỏ qua';
-			oneSignal_options['promptOptions']['siteName'] = window.location.href;
-			window._oneSignalInitOptions = oneSignal_options;
-			OneSignal.init(window._oneSignalInitOptions);
+		    OneSignal.init({
+		        appId: "dabdad7d-e889-4e5f-a963-58010a087e5d",
+		        notifyButton: {
+		            enable: false,
+		        },
+		        promptOptions: {
+		            slidedown: {
+		                enabled: true,
+		                autoPrompt: true,
+		                timeDelay: 20,
+		                pageViews: 3,
+		                actionMessage: "Nhận Tin game, Redeem Code, Thủ thuật, Mẹo vặt Genshin Impact mới nhất.",
+		                acceptButtonText: "Đồng ý",
+		                cancelButtonText: "Bỏ qua",
+		            }
+		        }
+		    });
 		});
 	</script>
 </body>
