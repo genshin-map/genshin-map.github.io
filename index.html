@@ -888,13 +888,12 @@
 		})
 	</script>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=2238542769737427&autoLogAppEvents=1" nonce="sHmgTTVA"></script>
-	
+
 	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 	<script>
 		window.OneSignal = window.OneSignal || [];
-		OneSignal.push( function() {
+		OneSignal.push(function() {
 			var oneSignal_options = {};
-			window._oneSignalInitOptions = oneSignal_options;
 			oneSignal_options['appId'] = 'dabdad7d-e889-4e5f-a963-58010a087e5d';
 			oneSignal_options['autoRegister'] = true;  
 			oneSignal_options['promptOptions'] = {};
@@ -902,6 +901,7 @@
 			oneSignal_options['promptOptions']['acceptButtonText'] = 'Đăng ký';
 			oneSignal_options['promptOptions']['cancelButtonText'] = 'Bỏ qua';
 			oneSignal_options['promptOptions']['siteName'] = window.location.href;
+			window._oneSignalInitOptions = oneSignal_options;
 			OneSignal.init(window._oneSignalInitOptions);
 		});
 	</script>
