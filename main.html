@@ -63,7 +63,7 @@
 	    <h2>Key</h2>
 	    <p>Mỗi người dùng sẽ được định danh bởi 1 Key. Mục đích để sao lưu dữ liệu dánh dấu.</p>
 	    <div class="my-3 d-flex align-items-center">
-	    	<button id="js-get-key" type="button" class="btn btn-primary mr-2">Lấy KEY</button>
+	    	<button id="js-get-key" type="button" class="btn btn-primary mr-2">Hiện KEY</button>
 	    	<div class="js-view-key"></div>
 	    </div>
 	    <hr class="mb-3"/>
@@ -125,7 +125,27 @@
 		    });
 	    }
 
+	    function down_marked_backup(){
+	    	$("body").on("click", ".js-marked-down", function() {
+	    		var that = $(this);
+	    		var file_name = that.attr('data-name');
+	    		var file_data = that.attr('data-marked');
+
+	    		var_temp_data = $(file_data).val();
+
+		    	var eleLink = document.createElement('a');
+		    	eleLink.download = 'genshin_markers_'+file_name+'.json';
+		    	eleLink.style.display = 'none';
+		    	var blob = new Blob([var_temp_data]);
+		    	eleLink.href = URL.createObjectURL(blob);
+		    	document.body.appendChild(eleLink);
+		    	eleLink.click();
+		    	document.body.removeChild(eleLink);
+		    });
+	    }
+
 	    get_marked_backup();
+	    down_marked_backup();
 	</script>
 </body>
 </html>
