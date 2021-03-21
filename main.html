@@ -49,24 +49,49 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<div class="container-fluid">
 	    	<a class="navbar-brand" href="/">Home</a>
 	    </div>
 	</nav>
 
-	<main role="main" class="container bc-main">
+	<main role="main" class="container bc-main pt-2">
 	    
 	    <h1 class="bd-title" id="content">Tiện ích</h1>
+
+	    <hr class="mb-3"/>
+	    <h2>Key</h2>
+	    <p>Mỗi người dùng sẽ được định danh bởi 1 Key. Mục đích để sao lưu dữ liệu dánh dấu.</p>
 	    <div class="my-3 d-flex align-items-center">
 	    	<button id="js-get-key" type="button" class="btn btn-primary mr-2">Lấy KEY</button>
 	    	<div class="js-view-key"></div>
 	    </div>
+	    <hr class="mb-3"/>
+	    <h2>Dữ liệu sao lưu</h2>
+	    <p>Danh sách dữ liệu sao lưu hiển thị tại đây</p>
+	    <div class="my-3 d-flex align-items-center">
+	    	<button id="js-marked-backup" type="button" class="btn btn-primary mr-2">Hiển thị dữ liệu</button>
+	    </div>
+	    <table class="table table-striped" id="js-marked-backup-table">
+	    	<thead>
+	    		<tr>
+	    			<th scope="col">#</th>
+	    			<th scope="col">Date</th>
+	    			<th scope="col">Num</th>
+	    			<th scope="col">Download</th>
+			    </tr>
+			</thead>
+			<tbody></tbody>
+		</table>
 	</main>
 
 	<script type="text/javascript">
 		/* Begin create coookie us_id & bcgens_browserid */
 		var Cookie={set:function(e,o,i){var t,r,n,s,d;i?((n=new Date).setTime(n.getTime()+24*i*60*60*1e3),s="; expires="+n.toGMTString()):s="",1===(d=location.host).split(".").length?document.cookie=e+"="+o+s+"; path=/":((r=d.split(".")).shift(),t="."+r.join("."),document.cookie=e+"="+o+s+"; path=/; domain="+t,null!=Cookie.get(e)&&Cookie.get(e)==o||(t="."+d,document.cookie=e+"="+o+s+"; path=/; domain="+t))},get:function(e){for(var o=e+"=",i=document.cookie.split(";"),t=0;t<i.length;t++){for(var r=i[t];" "==r.charAt(0);)r=r.substring(1,r.length);if(0==r.indexOf(o))return r.substring(o.length,r.length)}return null},erase:function(e){Cookie.set(e,"",-1)}};function bcgens_guid(){function e(){return Math.floor(65536*(1+Math.random())).toString(16).substring(1)}return e()+e()+"-"+e()+"-"+e()+"-"+e()+"-"+e()+e()+e()}var browser_id,bcgens_uuid=bcgens_guid();Cookie.get("bcgens_browserid")?(browser_id=Cookie.get("bcgens_browserid"),Cookie.set("bcgens_browserid",browser_id,365)):(browser_id=bcgens_uuid,Cookie.set("bcgens_browserid",browser_id,365)),Cookie.get("us_id")?(browser_id=Cookie.get("us_id"),Cookie.set("us_id",browser_id,365)):(browser_id=bcgens_uuid,Cookie.set("us_id",browser_id,365));
+	</script>
+	<script type="text/javascript">
+		/* backup data marke everyday */
+		function bc_backup_marked(){if(!Cookie.get("bcgens_last_backup")){var e=function(){for(var e=[],a=0;a<29;a++)for(var o=1;o<1200;o++){var t=a+"_"+o;localStorage.getItem(t)&&e.push(t)}return e}();e.length&&function(e){var a=Cookie.get("us_id"),o=Cookie.get("bcgens_browserid");$.ajax({type:"post",dataType:"JSON",url:"https://genshin.nhatkythuthuat.com/api/marked_log.php",data:{us_id:""+a,bcgens_browserid:""+o,markedLog:e},success:function(e){e.success?Cookie.set("bcgens_last_backup",1,1):e.errors,console.log(e)}})}(e)}}bc_backup_marked();
 	</script>
 
 	<script type="text/javascript">
@@ -75,6 +100,31 @@
 				$('.js-view-key').html(Cookie.get("us_id"));
 			});
 		});
+	</script>
+
+	<script type="text/javascript">
+
+		function get_marked_backup(){
+			$("body").on("click", "#js-marked-backup", function() {
+		        var us_id = Cookie.get("us_id");
+		        var bcgens_browserid = Cookie.get("bcgens_browserid");
+
+		        $.ajax({
+		            type: 'post',
+		            url: 'https://genshin.nhatkythuthuat.com/api/marked_log.php',
+		            data: {
+		            	tp: 'get_marked',
+		                us_id: ''+us_id,
+		                bcgens_browserid: ''+bcgens_browserid
+		            },
+		            success: function(response) {
+		                $('.js-marked-backup-table tbody').html(response);
+		            }
+		        });
+		    });
+	    }
+	    
+	    get_marked_backup();
 	</script>
 </body>
 </html>
