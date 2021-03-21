@@ -78,6 +78,7 @@
 	    			<th scope="col">#</th>
 	    			<th scope="col">Date</th>
 	    			<th scope="col">Num</th>
+	    			<th scope="col">Data</th>
 	    			<th scope="col">Download</th>
 			    </tr>
 			</thead>
@@ -118,12 +119,12 @@
 		                bcgens_browserid: ''+bcgens_browserid
 		            },
 		            success: function(response) {
-		                $('.js-marked-backup-table tbody').html(response);
+		                $('#js-marked-backup-table tbody').html(response);
 		            }
 		        });
 		    });
 	    }
-	    
+
 	    get_marked_backup();
 	</script>
 </body>
