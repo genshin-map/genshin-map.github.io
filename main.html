@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>Bản đồ Genshin Impact - Bản đồ Genshin Impact Tiếng Việt - Genshin Impact Map VN</title>
+	<meta name="description" content="Bản đồ Genshin, Bản đồ Genshin Impact, Bản đồ rương Genshin Impact, Bản đồ genshin impact phong thần đồng, bản đồ genshin impact nham thần đồng, Genshin map, Genshin Impact map, Genshin Impact chest map, Genshin Impact map vn" />
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta property="og:site_name" content="genshin-map.github.io" />
+    <meta property="og:url" content="https://genshin-map.github.io" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="imgs/cover.png" />
+    <meta property="og:title" content="Bản đồ Genshin - Genshin Impact map" />
+    <meta property="og:description" content="Bản đồ Genshin, Bản đồ Genshin Impact, Bản đồ rương Genshin Impact, Genshin map, Genshin Impact map, Genshin Impact chest map, Genshin Impact map vn" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bcat.css?v=0313" />
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-555995DXBS"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-555995DXBS');
+	</script>
+	<!-- Facebook Pixel Code -->
+	<script>
+		!function(f,b,e,v,n,t,s){
+			if(f.fbq)return;
+			n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+			n.queue=[];t=b.createElement(e);t.async=!0;
+			t.src=v;s=b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t,s)
+		}
+		(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '366891697930745');
+		fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=366891697930745&ev=PageView&noscript=1"/></noscript>
+	<!-- End Facebook Pixel Code -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<div class="container-fluid">
+	    	<a class="navbar-brand" href="/">Home</a>
+	    </div>
+	</nav>
+
+	<main role="main" class="container bc-main">
+	    
+	    <h1 class="bd-title" id="content">Tiện ích</h1>
+	    <div class="my-3 d-flex align-items-center">
+	    	<button id="js-get-key" type="button" class="btn btn-primary mr-2">Lấy KEY</button>
+	    	<div class="js-view-key"></div>
+	    </div>
+	</main>
+
+	<script type="text/javascript">
+		/* Begin create coookie us_id & bcgens_browserid */
+		var Cookie={set:function(e,o,i){var t,r,n,s,d;i?((n=new Date).setTime(n.getTime()+24*i*60*60*1e3),s="; expires="+n.toGMTString()):s="",1===(d=location.host).split(".").length?document.cookie=e+"="+o+s+"; path=/":((r=d.split(".")).shift(),t="."+r.join("."),document.cookie=e+"="+o+s+"; path=/; domain="+t,null!=Cookie.get(e)&&Cookie.get(e)==o||(t="."+d,document.cookie=e+"="+o+s+"; path=/; domain="+t))},get:function(e){for(var o=e+"=",i=document.cookie.split(";"),t=0;t<i.length;t++){for(var r=i[t];" "==r.charAt(0);)r=r.substring(1,r.length);if(0==r.indexOf(o))return r.substring(o.length,r.length)}return null},erase:function(e){Cookie.set(e,"",-1)}};function bcgens_guid(){function e(){return Math.floor(65536*(1+Math.random())).toString(16).substring(1)}return e()+e()+"-"+e()+"-"+e()+"-"+e()+"-"+e()+e()+e()}var browser_id,bcgens_uuid=bcgens_guid();Cookie.get("bcgens_browserid")?(browser_id=Cookie.get("bcgens_browserid"),Cookie.set("bcgens_browserid",browser_id,365)):(browser_id=bcgens_uuid,Cookie.set("bcgens_browserid",browser_id,365)),Cookie.get("us_id")?(browser_id=Cookie.get("us_id"),Cookie.set("us_id",browser_id,365)):(browser_id=bcgens_uuid,Cookie.set("us_id",browser_id,365));
+	</script>
+
+	<script type="text/javascript">
+		$(window).on("load",function(){
+			$("body").on("click", "#js-get-key", function() {
+				$('.js-view-key').html(Cookie.get("us_id"));
+			});
+		});
+	</script>
+</body>
+</html>
