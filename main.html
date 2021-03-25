@@ -216,8 +216,7 @@
 	                bcgens_browserid: ''+bcgens_browserid
 	            },
 	            success: function(response) {
-	                console.log(response);
-	                if (response.phone !== undefined){
+	                if (response.phone === undefined){
 	                	$('#js-add-phone').removeClass('d-none');
 	                	user_add_phone();
 	                } else {
