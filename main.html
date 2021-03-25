@@ -74,7 +74,7 @@
 	    <p>Danh sách dữ liệu sao lưu hiển thị tại đây</p>
 	    <div class="my-3 d-flex align-items-center">
 	    	<button id="js-marked-backup-by-key" type="button" class="btn btn-primary mr-2">Lấy dữ liệu từ Key khác</button>
-	    	<button id="js-marked-backup-upload" type="button" class="btn btn-primary mr-2">Tải dữ liệu lên máy chủ</button>
+	    	<button id="js-marked-backup-upload" type="button" class="btn btn-warning mr-2">Tải dữ liệu lên máy chủ</button>
 	    </div>
 	    <hr class="mb-3"/>
 	    <div class="table-responsive">
@@ -110,9 +110,20 @@
 			});
 
 			$("body").on("click", "#js-marked-backup-upload", function() {
-				Cookie.set("bcgens_last_backup",-1,-1);
-				bc_backup_marked();
-				Swal.fire('Đã tải lên. Vui lòng không tải lên nhiều lần trong ngày.');
+				Swal.fire({
+					title: 'Tải lên',
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Có'
+				}).then((result) => {
+					if (result.isConfirmed) {
+						Cookie.set("bcgens_last_backup",-1,-1);
+						bc_backup_marked();
+						Swal.fire('Đã tải lên. Vui lòng không tải lên nhiều lần trong ngày.');
+					}
+				});
 			});
 		});
 	</script>
