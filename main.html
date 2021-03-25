@@ -64,9 +64,10 @@
 	    <h2>Key</h2>
 	    <p>Mỗi người dùng sẽ được định danh bởi 1 Key. Mục đích để sao lưu dữ liệu dánh dấu.</p>
 	    <div class="my-3 d-flex align-items-center">
-	    	<button id="js-add-phone" type="button" class="btn btn-primary mr-2">Thêm SDT</button>
+	    	<button id="js-add-phone" type="button" class="d-none btn btn-primary mr-2">Thêm SDT</button>
+	    	<button id="js-view-phone" type="button" class="d-none btn btn-primary mr-2">Xem SDT</button>
 	    	<button id="js-get-key" type="button" class="btn btn-primary mr-2">Hiện KEY</button>
-	    	<div class="js-view-key"></div>
+	    	<div class="js-view-key d-none"></div>
 	    </div>
 	    <hr class="mb-3"/>
 	    <h2>Dữ liệu sao lưu</h2>
@@ -102,7 +103,7 @@
 	<script type="text/javascript">
 		$(window).on("load",function(){
 			$("body").on("click", "#js-get-key", function() {
-				$('.js-view-key').html(Cookie.get("us_id"));
+				Swal.fire(Cookie.get("us_id"));
 			});
 		});
 	</script>
@@ -216,8 +217,14 @@
 	            },
 	            success: function(response) {
 	                console.log(response);
-	                if (response.phone){
-	                	
+	                if (response.phone !== undefined){
+	                	$('#js-add-phone').removeClass('d-none');
+	                	user_add_phone();
+	                } else {
+	                	$('#js-view-phone').removeClass('d-none');
+	                	$("body").on("click", "#js-view-phone", function() {
+				        	Swal.fire(response.phone);
+				        });
 	                }
 	            }
 	        });
@@ -226,7 +233,7 @@
 
 	    get_marked_backup();
 	    down_marked_backup();
-	    user_add_phone();
+	    get_user_info();
 	</script>
 </body>
 </html>
