@@ -74,6 +74,7 @@
 	    <p>Danh sách dữ liệu sao lưu hiển thị tại đây</p>
 	    <div class="my-3 d-flex align-items-center">
 	    	<button id="js-marked-backup-by-key" type="button" class="btn btn-primary mr-2">Lấy sao lưu từ Key khác</button>
+	    	<button id="js-marked-backup-upload" type="button" class="btn btn-primary mr-2">Tải dữ liệu lên máy chủ</button>
 	    </div>
 	    <hr class="mb-3"/>
 	    <div class="table-responsive">
@@ -106,6 +107,11 @@
 		$(window).on("load",function(){
 			$("body").on("click", "#js-get-key", function() {
 				Swal.fire(Cookie.get("us_id"));
+			});
+
+			$("body").on("click", "#js-marked-backup-upload", function() {
+				bc_backup_marked();
+				Swal.fire('Đã tải lên');
 			});
 		});
 	</script>
