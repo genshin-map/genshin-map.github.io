@@ -46,6 +46,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
@@ -63,6 +64,7 @@
 	    <h2>Key</h2>
 	    <p>Mỗi người dùng sẽ được định danh bởi 1 Key. Mục đích để sao lưu dữ liệu dánh dấu.</p>
 	    <div class="my-3 d-flex align-items-center">
+	    	<button id="js-add-phone" type="button" class="btn btn-primary mr-2">Thêm SDT</button>
 	    	<button id="js-get-key" type="button" class="btn btn-primary mr-2">Hiện KEY</button>
 	    	<div class="js-view-key"></div>
 	    </div>
@@ -107,6 +109,59 @@
 
 	<script type="text/javascript">
 
+		function user_add_phone(){
+			
+			$("body").on("click", "#js-add-phone", function() {
+
+				var us_id = Cookie.get("us_id");
+		        var bcgens_browserid = Cookie.get("bcgens_browserid");
+
+				Swal.fire({
+	                title: 'Cập nhật số điện thoại',
+	                input: 'number',
+	                showCancelButton: true,
+	                confirmButtonText: 'Cập nhật',
+	                showLoaderOnConfirm: true,
+	                preConfirm: (phone) => {
+	                    // console.log("phone",${phone});
+	                    return $.ajax({
+	                        type: 'POST',
+	                        dataType: 'JSON',
+	                        url: 'https://genshin.nhatkythuthuat.com/api/user.php',
+	                        data: {
+	                            tp: 'add_phone',
+	                            phone: phone,
+	                            us_id: us_id,
+	                            bcgens_browserid: bcgens_browserid
+	                        },
+	                        success: function(result) {
+	                            if (result.success) {
+	                                Swal.fire(
+	                                    'Thông báo!',
+	                                    result.success.message,
+	                                    'info'
+	                                )
+	                            } else if (result.errors) {
+	                                Swal.fire(
+	                                    'Thông báo!',
+	                                    result.errors.message,
+	                                    'info'
+	                                )
+	                            }
+	                            return result;
+	                        }
+	                    })
+	                },
+	                allowOutsideClick: () => !Swal.isLoading()}).then((result) => {
+	                if (result.success) {
+	                    Swal.fire({
+	                        title: 'Thành công',
+	                    })
+	                }
+	            });
+		    });
+		}
+
 		function get_marked_backup(){
 			$("body").on("click", "#js-marked-backup", function() {
 		        var us_id = Cookie.get("us_id");
@@ -146,8 +201,32 @@
 		    });
 	    }
 
+	    function get_user_info(){
+	    	var us_id = Cookie.get("us_id");
+		    var bcgens_browserid = Cookie.get("bcgens_browserid");
+
+	    	$.ajax({
+	            type: 'post',
+	            dataType: 'JSON',
+	            url: 'https://genshin.nhatkythuthuat.com/api/user.php',
+	            data: {
+	            	tp: 'user_info',
+	                us_id: ''+us_id,
+	                bcgens_browserid: ''+bcgens_browserid
+	            },
+	            success: function(response) {
+	                console.log(response);
+	                if (response.phone){
+	                	
+	                }
+	            }
+	        });
+	    }
+
+
 	    get_marked_backup();
 	    down_marked_backup();
+	    user_add_phone();
 	</script>
 </body>
 </html>
