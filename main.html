@@ -238,13 +238,9 @@
 				}).then((result) => {
 					if (result.isConfirmed) {
 						if (var_temp_data && var_temp_data.length > 1){
-			    			// xoa danh gia cu
-							for (var i = 0; i < 29; i++) {
-								for (var j = 1; j < 1200; j++) {
-									var key = i + "_" + j
-									localStorage.removeItem(key);
-								}
-							}
+			    			
+				    		// xoa danh gia cu
+							localStorage.clear();
 
 							$.each(var_temp_data, function(key, value) {
 								localStorage.setItem(value,"1");
