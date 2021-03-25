@@ -264,9 +264,10 @@
 	                bcgens_browserid: ''+bcgens_browserid
 	            },
 	            success: function(response) {
-	                if (response === undefined || response.phone === undefined){
-	                	$('#js-add-phone').removeClass('d-none');
-	                	user_add_phone();
+	                if (response == null){
+						$('#js-add-phone').removeClass('d-none');
+						user_add_phone();
+						return;
 	                } else {
 	                	$('#js-view-phone').removeClass('d-none');
 	                	$("body").on("click", "#js-view-phone", function() {
