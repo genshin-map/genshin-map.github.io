@@ -72,7 +72,7 @@
 	    <h2>Dữ liệu sao lưu</h2>
 	    <p>Danh sách dữ liệu sao lưu hiển thị tại đây</p>
 	    <div class="my-3 d-flex align-items-center">
-	    	<button id="js-marked-backup" type="button" class="btn btn-primary mr-2">Hiển thị dữ liệu</button>
+	    	<!-- <button id="js-marked-backup" type="button" class="btn btn-primary mr-2">Hiển thị dữ liệu</button> -->
 	    </div>
 	    <div class="table-responsive">
 		    <table class="table table-striped" id="js-marked-backup-table">
@@ -164,23 +164,21 @@
 		}
 
 		function get_marked_backup(){
-			$("body").on("click", "#js-marked-backup", function() {
-		        var us_id = Cookie.get("us_id");
-		        var bcgens_browserid = Cookie.get("bcgens_browserid");
+	        var us_id = Cookie.get("us_id");
+	        var bcgens_browserid = Cookie.get("bcgens_browserid");
 
-		        $.ajax({
-		            type: 'post',
-		            url: 'https://genshin.nhatkythuthuat.com/api/marked_log.php',
-		            data: {
-		            	tp: 'get_marked',
-		                us_id: ''+us_id,
-		                bcgens_browserid: ''+bcgens_browserid
-		            },
-		            success: function(response) {
-		                $('#js-marked-backup-table tbody').html(response);
-		            }
-		        });
-		    });
+	        $.ajax({
+	            type: 'post',
+	            url: 'https://genshin.nhatkythuthuat.com/api/marked_log.php',
+	            data: {
+	            	tp: 'get_marked',
+	                us_id: ''+us_id,
+	                bcgens_browserid: ''+bcgens_browserid
+	            },
+	            success: function(response) {
+	                $('#js-marked-backup-table tbody').html(response);
+	            }
+	        });
 	    }
 
 	    function down_marked_backup(){
@@ -270,11 +268,10 @@
 	        });
 	    }
 
-
+	    get_user_info();
 	    get_marked_backup();
 	    down_marked_backup();
 	    restore_marked_backup();
-	    get_user_info();
 	</script>
 </body>
 </html>
