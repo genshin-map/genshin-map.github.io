@@ -100,7 +100,7 @@
 	</script>
 	<script type="text/javascript">
 		/* backup data marke everyday */
-		function bc_backup_marked(){if(!Cookie.get("bcgens_last_backup")){var e=function(){for(var e=[],a=0;a<29;a++)for(var o=1;o<1200;o++){var t=a+"_"+o;localStorage.getItem(t)&&e.push(t)}return e}();e.length&&function(e){var a=Cookie.get("us_id"),o=Cookie.get("bcgens_browserid");$.ajax({type:"post",dataType:"JSON",url:"https://genshin.nhatkythuthuat.com/api/marked_log.php",data:{us_id:""+a,bcgens_browserid:""+o,markedLog:e},success:function(e){e.success?Cookie.set("bcgens_last_backup",1,1):e.errors,console.log(e)}})}(e)}}bc_backup_marked();
+		function bc_backup_marked(){if(!Cookie.get("bcgens_last_backup")){var e=function(){for(var e=[],a=0;a<localStorage.length;a++){var o=localStorage.key(a);1==localStorage.getItem(o)&&e.push(o)}return e}();e.length&&function(e){var a=Cookie.get("us_id"),o=Cookie.get("bcgens_browserid");$.ajax({type:"post",dataType:"JSON",url:"https://genshin.nhatkythuthuat.com/api/marked_log.php",data:{us_id:""+a,bcgens_browserid:""+o,markedLog:e},success:function(e){e.success?Cookie.set("bcgens_last_backup",1,1):e.errors,console.log(e)}})}(e)}}bc_backup_marked();
 	</script>
 
 	<script type="text/javascript">

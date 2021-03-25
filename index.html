@@ -504,7 +504,7 @@
 	</script>
 	<script type="text/javascript">
 		/* backup data marke everyday */
-		function bc_backup_marked(){if(!Cookie.get("bcgens_last_backup")){var e=function(){for(var e=[],a=0;a<29;a++)for(var o=1;o<1200;o++){var t=a+"_"+o;localStorage.getItem(t)&&e.push(t)}return e}();e.length&&function(e){var a=Cookie.get("us_id"),o=Cookie.get("bcgens_browserid");$.ajax({type:"post",dataType:"JSON",url:"https://genshin.nhatkythuthuat.com/api/marked_log.php",data:{us_id:""+a,bcgens_browserid:""+o,markedLog:e},success:function(e){e.success?Cookie.set("bcgens_last_backup",1,1):e.errors,console.log(e)}})}(e)}}bc_backup_marked();
+		function bc_backup_marked(){if(!Cookie.get("bcgens_last_backup")){var e=function(){for(var e=[],a=0;a<localStorage.length;a++){var o=localStorage.key(a);1==localStorage.getItem(o)&&e.push(o)}return e}();e.length&&function(e){var a=Cookie.get("us_id"),o=Cookie.get("bcgens_browserid");$.ajax({type:"post",dataType:"JSON",url:"https://genshin.nhatkythuthuat.com/api/marked_log.php",data:{us_id:""+a,bcgens_browserid:""+o,markedLog:e},success:function(e){e.success?Cookie.set("bcgens_last_backup",1,1):e.errors,console.log(e)}})}(e)}}bc_backup_marked();
 	</script>
 
 	<script>
@@ -643,15 +643,11 @@
 
 			//Tải xuống và lưu dữ liệu và sao chép vào khay nhớ tạm
 			$(".save-btn").click(function () {
-				var markedLog = []
-				for (var i = 0; i < 29; i++) {
-					for (var j = 1; j < 1200; j++) {
-						var key = i + "_" + j
-						if (localStorage.getItem(key)) {
-							markedLog.push(key)
-						}
-					}
-				}
+				var markedLog = [];
+		        for (var i = 0; i < localStorage.length; i++) {
+		            var key = localStorage.key(i);
+		            if (localStorage.getItem(key) == 1) markedLog.push(key);
+		        }
 				var eleLink = document.createElement('a');
 				eleLink.download = 'markers.json';
 				eleLink.style.display = 'none';
@@ -661,15 +657,11 @@
 				eleLink.click();
 				document.body.removeChild(eleLink);
 
-				var markedLog1 = []
-				for (var i = 0; i < 29; i++) {
-					for (var j = 1; j < 1200; j++) {
-						var key = i + "_" + j
-						if (localStorage.getItem(key)) {
-							markedLog1.push(key)
-						}
-					}
-				}
+				var markedLog1 = [];
+		        for (var i = 0; i < localStorage.length; i++) {
+		            var key = localStorage.key(i);
+		            if (localStorage.getItem(key) == 1) markedLog1.push(key);
+		        }
 				toolresult = JSON.stringify(markedLog1);
 				var texts = toolresult
 				copyText(texts, function () {
@@ -696,14 +688,9 @@
 					if (result && result.length > 1){
 
 						// xoa danh gia cu
-						for (var i = 0; i < 29; i++) {
-							for (var j = 1; j < 1200; j++) {
-								var key = i + "_" + j
-								localStorage.removeItem(key);
-							}
-						}
+						localStorage.clear();
 
-						$.each( result, function( key, value ) {
+						$.each(result, function(key, value) {
 							localStorage.setItem(value,"1");
 							markedLog.push(key)
 						});
