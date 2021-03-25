@@ -73,7 +73,7 @@
 	    <h2>Dữ liệu sao lưu</h2>
 	    <p>Danh sách dữ liệu sao lưu hiển thị tại đây</p>
 	    <div class="my-3 d-flex align-items-center">
-	    	<!-- <button id="js-marked-backup" type="button" class="btn btn-primary mr-2">Hiển thị dữ liệu</button> -->
+	    	<button id="js-marked-backup-by-key" type="button" class="btn btn-primary mr-2">Hiện sao lưu từ Key</button>
 	    </div>
 	    <div class="table-responsive">
 		    <table class="table table-striped" id="js-marked-backup-table">
@@ -269,8 +269,48 @@
 	        });
 	    }
 
+	    function get_marked_backup_by_key(){
+	    	var us_id = Cookie.get("us_id");
+		    var bcgens_browserid = Cookie.get("bcgens_browserid");
+
+	    	$("body").on("click", "#js-marked-backup-by-key", function() {
+
+				Swal.fire({
+	                title: 'Nhập vào Key',
+	                input: 'text',
+	                showCancelButton: true,
+	                confirmButtonText: 'Lấy dữ liệu',
+	                showLoaderOnConfirm: true,
+	                preConfirm: (key) => {
+	                    // console.log("phone",${phone});
+	                    return $.ajax({
+	                        type: 'POST',
+	                        dataType: 'JSON',
+	                        url: 'https://genshin.nhatkythuthuat.com/api/marked_log.php',
+	                        data: {
+	                            tp: 'get_marked_by_key',
+	                            us_id: ''+us_id,
+	                            bcgens_browserid: ''+bcgens_browserid,
+	                            key: key
+	                        },
+	                        success: function(response) {
+	                        	$('#js-marked-backup-table tbody').html(response);
+	                        }
+	                    })
+	                },
+	                allowOutsideClick: () => !Swal.isLoading()}).then((result) => {
+	                if (result.success) {
+	                    Swal.fire({
+	                        title: 'Thành công',
+	                    })
+	                }
+	            });
+		    });
+	    }
+
 	    get_user_info();
 	    get_marked_backup();
+	    get_marked_backup_by_key();
 	    down_marked_backup();
 	    restore_marked_backup();
 	</script>
