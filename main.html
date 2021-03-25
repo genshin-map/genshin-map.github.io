@@ -202,6 +202,47 @@
 		    });
 	    }
 
+	    function restore_marked_backup(){
+	    	$("body").on("click", ".js-marked-restore", function() {
+	    		var that = $(this);
+	    		var file_name = that.attr('data-name');
+	    		var file_data = that.attr('data-marked');
+	    		var var_temp_data = $(file_data).val();
+	    		var_temp_data = JSON.parse(var_temp_data);
+
+	    		Swal.fire({
+					title: 'Bạn có chắc chưa?',
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Có, khôi phục!'
+				}).then((result) => {
+					if (result.isConfirmed) {
+						if (var_temp_data && var_temp_data.length > 1){
+			    			// xoa danh gia cu
+							for (var i = 0; i < 29; i++) {
+								for (var j = 1; j < 1200; j++) {
+									var key = i + "_" + j
+									localStorage.removeItem(key);
+								}
+							}
+
+							$.each(var_temp_data, function(key, value) {
+								localStorage.setItem(value,"1");
+							});
+			    		}
+
+						Swal.fire(
+							'Thành công',
+							'Dữ liệu đã được khôi phục',
+							'success'
+						)
+					}
+				})
+		    });
+	    }
+
 	    function get_user_info(){
 	    	var us_id = Cookie.get("us_id");
 		    var bcgens_browserid = Cookie.get("bcgens_browserid");
@@ -232,6 +273,7 @@
 
 	    get_marked_backup();
 	    down_marked_backup();
+	    restore_marked_backup();
 	    get_user_info();
 	</script>
 </body>
