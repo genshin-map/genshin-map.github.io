@@ -73,7 +73,7 @@
 	    <h2>Dữ liệu sao lưu</h2>
 	    <p>Danh sách dữ liệu sao lưu hiển thị tại đây</p>
 	    <div class="my-3 d-flex align-items-center">
-	    	<button id="js-marked-backup-by-key" type="button" class="btn btn-primary mr-2">Lấy sao lưu từ Key khác</button>
+	    	<button id="js-marked-backup-by-key" type="button" class="btn btn-primary mr-2">Lấy dữ liệu từ Key khác</button>
 	    	<button id="js-marked-backup-upload" type="button" class="btn btn-primary mr-2">Tải dữ liệu lên máy chủ</button>
 	    </div>
 	    <hr class="mb-3"/>
@@ -110,6 +110,7 @@
 			});
 
 			$("body").on("click", "#js-marked-backup-upload", function() {
+				Cookie.set("bcgens_last_backup",-1,-1);
 				bc_backup_marked();
 				Swal.fire('Đã tải lên. Vui lòng không tải lên nhiều lần trong ngày.');
 			});
