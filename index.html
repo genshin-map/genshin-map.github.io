@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css?v=0313" />
 	<link rel="stylesheet" href="dist/MarkerCluster.css?v=0313" />
 	<link rel="stylesheet" href="dist/MarkerCluster.Default.css?v=0313" />
-	<link rel="stylesheet" type="text/css" href="css/bcat.css?v=0325" />
+	<link rel="stylesheet" type="text/css" href="css/bcat.css?v=0417" />
 	
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-555995DXBS"></script>
@@ -63,7 +63,8 @@
 	<div class="switch_FB"></div>
 	<div class="loading" style="display: none;"></div>
 	<div id='map'></div>
-	<div class="bc-wish"></div>
+	<a class="bc-wish" href="https://genshin-map.github.io/wish/" target="_blank" title="Cầu nguyện Genshin Impact"></a>
+	<a class="bc-shop" href="https://genshin-map.github.io/shop/" target="_blank" title="Cừa hàng Genshin Impact"></a>
 	<!-- Bộ lọc -->
 	<div class="control-containor">
 		<img class="Background" src="imgs/con_img/Content.png">
@@ -701,12 +702,6 @@
 				}
 
 				fr.readAsText(files.item(0));
-			})
-
-			// Nhảy độc lập
-			$(".bc-wish").click(function () {
-				window.event.returnValue = false;
-				window.location.href = 'https://genshin-map.github.io/wish/';
 			})
 
 			var statu = 1;

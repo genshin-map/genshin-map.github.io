@@ -72,3 +72,29 @@ ul.con-type-label-containor li.con-type-label.lable6 {
     padding: 5px 5px;
     display: block;
 }
+
+
+a.bc-wish {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 50px;
+    background: url(https://genshin-map.github.io/imgs/con_img/wish.png) no-repeat center top;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    z-index: 999;
+    cursor: pointer;
+}
+a.bc-shop {
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: 100px;
+    background: url(https://genshin-map.github.io/shop/imgs/shop-img.jpg) no-repeat center top;
+    background-size: contain;
+    width: 90px;
+    height: 45px;
+    z-index: 999;
+    cursor: pointer;
+}
