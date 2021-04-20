@@ -143,26 +143,51 @@
             </button>
         </div>
         <div id="shop-products">
+            <!--  -->
+            <div class="container">
+                <h2 class="featurette-heading text-white mb-3">Bán chạy</h2>
+            </div>
+            <div class="shopee-products" id="best_seller"></div>
+            <script type="text/javascript">
+                $(window).on("load",function(){
+                    var url = 'https://nhatkythuthuat.com/tool/shopee/api/shop_products.php?by=relevancy&keyword=genshin&page_type=search&limit=30&isaff=1';
+                    $.ajax({url: url, success: function(data) {$('#best_seller').html(data)}});
+                });
+            </script>
+            <!--  -->
             <div class="container">
                 <h2 class="featurette-heading text-white mb-3">Otaku Yuki Shop</h2>
             </div>
             <div class="shopee-products" id="shop_18983070_48495208"></div>
             <script type="text/javascript">
                 $(window).on("load",function(){
-                    var url = 'https://nhatkythuthuat.com/tool/shopee/api/shop_products.php?shopid=18983070&shop_categoryids=48495208&isaff=1';
+                    var url = 'https://nhatkythuthuat.com/tool/shopee/api/shop_products.php?shopid=18983070&shop_categoryids=48495208&limit=10&isaff=1';
                     $.ajax({url: url, success: function(data) {$('#shop_18983070_48495208').html(data)}});
                 });
             </script>
+            <!--  -->
+            <div class="container">
+                <h2 class="featurette-heading text-white mb-3">YX9 Shop</h2>
+            </div>
+            <div class="shopee-products" id="shop_309862191_103549817"></div>
+            <script type="text/javascript">
+                $(window).on("load",function(){
+                    var url = 'https://nhatkythuthuat.com/tool/shopee/api/shop_products.php?shopid=309862191&shop_categoryids=103549817&limit=10&isaff=1';
+                    $.ajax({url: url, success: function(data) {$('#shop_309862191_103549817').html(data)}});
+                });
+            </script>
+            <!--  -->
             <div class="container">
                 <h2 class="featurette-heading text-white mb-3">dtc24h</h2>
             </div>
             <div class="shopee-products" id="shop_dtc24h"></div>
             <script type="text/javascript">
                 $(window).on("load",function(){
-                    var url = 'https://nhatkythuthuat.com/tool/shopee/api/shop_products.php?shopid=69471838&by=relevancy&entry_point=ShopByPDP&keyword=genshin&isaff=1';
+                    var url = 'https://nhatkythuthuat.com/tool/shopee/api/shop_products.php?shopid=69471838&by=relevancy&entry_point=ShopByPDP&keyword=genshin&limit=10&isaff=1';
                     $.ajax({url: url, success: function(data) {$('#shop_dtc24h').html(data)}});
                 });
             </script>
+            <!--  -->
         </div>
         <footer class="container">
             <p class="float-end"><a href="#">Back to top</a></p>
