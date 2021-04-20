@@ -153,6 +153,16 @@
                     $.ajax({url: url, success: function(data) {$('#shop_18983070_48495208').html(data)}});
                 });
             </script>
+            <div class="container">
+                <h2 class="featurette-heading text-white mb-3">dtc24h</h2>
+            </div>
+            <div class="shopee-products" id="shop_dtc24h"></div>
+            <script type="text/javascript">
+                $(window).on("load",function(){
+                    var url = 'https://nhatkythuthuat.com/tool/shopee/api/shop_products.php?shopid=69471838&by=relevancy&entry_point=ShopByPDP&keyword=genshin&isaff=1';
+                    $.ajax({url: url, success: function(data) {$('#shop_dtc24h').html(data)}});
+                });
+            </script>
         </div>
         <footer class="container">
             <p class="float-end"><a href="#">Back to top</a></p>
