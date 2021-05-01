@@ -1,5 +1,5 @@
 //@ts-check
-//初始化地图
+//Khởi tạo bản đồ
 t = L.latLngBounds([0, 0], [-66.5, 90]);
 var map = L.map("map", {
     //crs: L.CRS.Simple,
@@ -32,7 +32,7 @@ L.tileLayer.t = function() {
     return new L.TileLayer.T();
 }
 map.addLayer(L.tileLayer.t());
-//水印
+//Chữ ký ảnh
 // L.TileLayer.T1 = L.TileLayer.extend({
 // 	getTileUrl: function (coords) {
 // 		x = coords.x
@@ -51,7 +51,7 @@ map.addLayer(L.tileLayer.t());
 // 	return new L.TileLayer.T1();
 // }
 // map.addLayer(L.tileLayer.t1());
-//各个坐标的分类类别的初始化
+//Khởi tạo loại phân loại của mỗi tọa độ
 var LayerMap = {
     Layer_FST: L.markerClusterGroup({
         maxClusterRadius: 0
@@ -84,7 +84,7 @@ var LayerMap = {
     Layer_SYFS_LY: L.markerClusterGroup(),
     Layer_DXQQR_LY: L.markerClusterGroup(),
     Layer_BX_MD: L.markerClusterGroup({
-        maxClusterRadius: function(e) {
+        maxClusterRadius: function (e) {
             let radius = 100;
             if (e == 4) radius = 100;
             else if (e == 5) radius = 80;
@@ -95,7 +95,7 @@ var LayerMap = {
         }
     }),
     Layer_BX_LY: L.markerClusterGroup({
-        maxClusterRadius: function(e) {
+        maxClusterRadius: function (e) {
             let radius = 100;
             if (e == 4) radius = 100;
             else if (e == 5) radius = 80;
@@ -233,13 +233,22 @@ var LayerMap = {
         maxClusterRadius: 0
     }),
     Layer_ZWCLR_MD: L.markerClusterGroup(),
+    Layer_QQRSS_MD: L.markerClusterGroup(),
+    Layer_QQRSS_LY: L.markerClusterGroup(),
+    Layer_TFWT_MD: L.markerClusterGroup(),
+    Layer_TFWT_LY: L.markerClusterGroup(),
+    Layer_ShiP_MD: L.markerClusterGroup(),
+    Layer_ShiP_LY: L.markerClusterGroup(),
+    Layer_YLX_LY: L.markerClusterGroup(),
+    Layer_TK_MD: L.markerClusterGroup(),
+    Layer_TK_LY: L.markerClusterGroup(),
 }
 
-//定义各个坐标使用的图标
+//Xác định các biểu tượng được sử dụng cho mỗi tọa độ
 function getIconInfo(Name) {
     switch (Name) {
         case "ST":
-            { //神瞳
+            { //Thần Hitomi
                 var icon_base = L.Icon.extend({
                     options: {
                         iconSize: [24, 24], // size of the icon
@@ -252,7 +261,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "DLK":
-            { //地灵龛
+            { //Thích hợp
                 var icon_base = L.Icon.extend({
                     options: {
                         shadowUrl: "./imgs/loc_notfind.svg",
@@ -266,7 +275,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "TC":
-            { //特产
+            { //Chuyên môn
                 var icon_base = L.Icon.extend({
                     options: {
                         shadowUrl: "./imgs/loc_notfind_black.svg",
@@ -280,7 +289,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "KW":
-            { //矿物
+            { //Khoáng sản
                 var icon_base = L.Icon.extend({
                     options: {
                         shadowUrl: "./imgs/loc_stonenot.svg",
@@ -294,7 +303,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "JYG":
-            { //精英怪
+            { //Quái vật
                 var icon_base = L.Icon.extend({
                     options: {
                         shadowUrl: "./imgs/loc_notfind.svg",
@@ -308,7 +317,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "PTG":
-            { //普通怪
+            { //Quái vật
                 var icon_base = L.Icon.extend({
                     options: {
                         shadowUrl: "./imgs/loc_notfind.svg",
@@ -322,7 +331,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "BX":
-            { // 宝箱
+            { // Rương kho báu
                 var icon_base = L.Icon.extend({
                     options: {
                         shadowUrl: "./imgs/loc_stonenot.svg",
@@ -336,7 +345,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "CSD":
-            { // 传送点
+            { // Điểm dịch chuyển
                 var icon_base = L.Icon.extend({
                     options: {
                         iconSize: [23, 33], // size of the icon
@@ -349,7 +358,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "SX":
-            { // 神像
+            { // Thần tượng
                 var icon_base = L.Icon.extend({
                     options: {
                         iconSize: [30, 43], // size of the icon
@@ -362,7 +371,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         case "FBMJ":
-            { // 副本、秘境
+            { // Hầm ngục, Vương quốc bí mật
                 var icon_base = L.Icon.extend({
                     options: {
                         iconSize: [33, 33], // size of the icon
@@ -375,7 +384,7 @@ function getIconInfo(Name) {
                 return icon_base;
             }
         default:
-            { //默认
+            { //Mặc định
                 var icon_base = L.Icon.extend({
                     options: {
                         shadowUrl: "./imgs/loc_notfind.svg",
@@ -421,7 +430,7 @@ function change() {
     }
 };
 
-//添加坐标点击信息
+//Thêm thông tin nhấp chuột tọa độ
 function onEachFeature(feature, layer) {
     // var layerNumber = localStorage.getItem("layerNumber");
     // var key = layerNumber + "_" + feature.id;
@@ -451,7 +460,7 @@ function openIssue() {
     createIssue("issueName", "issueContent", "null")
 }
 
-//定义分类的数组，分别对应 物品层，物品Json名，物品icon类型，新增时在对应数组后增加对象即可
+//Xác định mảng danh mục, tương ứng với lớp mục, tên Json mục, loại biểu tượng mục và thêm các đối tượng sau mảng tương ứng khi thêm
 var typearray = [
     [LayerMap["Layer_FST"], JS_FST, "ST", 'FST'],
     [LayerMap["Layer_YST"], JS_YST, "ST", 'YST'],
@@ -568,8 +577,8 @@ var typearray = [
     [LayerMap["Layer_LXR_MD"], JS_LXR_MD, "TC", 'LXR_MD'],
     [LayerMap["Layer_SJ_MD"], JS_SJ_MD, "TC", 'SJ_MD'],
     [LayerMap["Layer_SJ_LY"], JS_SJ_LY, "TC", 'SJ_LY'],
-    [LayerMap["Layer_SJRW_MD"], JS_SJRW_MD, "TC", 'SJRW_MD'],
-    [LayerMap["Layer_SJRW_LY"], JS_SJRW_LY, "TC", 'SJRW_LY'],
+    [LayerMap["Layer_SJRW_MD"], JS_SJRW_MD, "ST", 'SJRW_MD'],
+    [LayerMap["Layer_SJRW_LY"], JS_SJRW_LY, "ST", 'SJRW_LY'],
     [LayerMap["Layer_SYWD_MD"], JS_SYWD_MD, "TC", 'SYWD_MD'],
     [LayerMap["Layer_SYWD_LY"], JS_SYWD_LY, "TC", 'SYWD_LY'],
     [LayerMap["Layer_KDCD_MD"], JS_KDCD_MD, "TC", 'KDCD_MD'],
@@ -587,6 +596,15 @@ var typearray = [
     [LayerMap["Layer_FB_MD"], JS_FB_MD, "FBMJ", 'FB_MD'],
     [LayerMap["Layer_FB_LY"], JS_FB_LY, "FBMJ", 'FB_LY'],
     [LayerMap["Layer_ZWCLR_MD"], JS_ZWCLR_MD, "PTG", 'ZWCLR_MD'],
+    [LayerMap["Layer_QQRSS_MD"], JS_QQRSS_MD, "PTG", 'JS_QQRSS_MD'],
+    [LayerMap["Layer_QQRSS_LY"], JS_QQRSS_LY, "PTG", 'JS_QQRSS_LY'],
+    [LayerMap["Layer_TFWT_MD"], JS_TFWT_MD, "ST", 'JS_TFWT_MD'],
+    [LayerMap["Layer_TFWT_LY"], JS_TFWT_LY, "ST", 'JS_TFWT_LY'],
+    [LayerMap["Layer_ShiP_MD"], JS_ShiP_MD, "TC", 'JS_ShiP_MD'],
+    [LayerMap["Layer_ShiP_LY"], JS_ShiP_LY, "TC", 'JS_ShiP_LY'],
+    [LayerMap["Layer_YLX_LY"], JS_YLX_LY, "PTG", 'JS_YLX_LY'],
+    [LayerMap["Layer_TK_MD"], JS_TK_MD, "KW", 'TK_MD'],
+    [LayerMap["Layer_TK_LY"], JS_TK_LY, "KW", 'TK_LY'],
 ];
 const MonosTime = {
     LLD: 48,
@@ -621,7 +639,7 @@ const MonosTime = {
     DWQ_MD: 12,
     DWQ_LY: 12
 }
-//标记方法
+//Phương pháp đánh dấu
 var markers = {};
 
 function MarkPoint(element) {
@@ -688,7 +706,7 @@ function MarkPoint(element) {
     }, 500);
 }
 
-//初始化各个坐标
+//Khởi tạo từng tọa độ
 function InitMarkerLayer() {
     for (let i = 0; i < typearray.length; i++) {
         localStorage.setItem("layerNumber", i);
@@ -782,7 +800,7 @@ function dealIcon(target, key) {
     return target
 }
 
-//定义筛选器项目
+//Xác định các mục bộ lọc
 // var overlays = {
 // 	"<span class='Layer_FST map-opts'>风神瞳</span>": Layer_FST,
 // 	"<span class='Layer_YST map-opts'>岩神瞳</span>": Layer_YST,
