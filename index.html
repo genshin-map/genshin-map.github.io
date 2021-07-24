@@ -26,11 +26,21 @@
 		body {
 			margin: 0;
 		}
+		.bc-login {
+		    display: block;
+		    position: absolute;
+		    right: 25px;
+		    top: 15px;
+		    width: 45px;
+		    height: 45px;
+		    z-index: 1000;
+		}
 	</style>
 </head>
 
 <body>
-	<iframe src="https://webstatic-sea.mihoyo.com/app/ys-map-sea/index.html?lang=vi-vn#/map/2?shown_types=" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">Your browser doesn't support iframes</iframe>
+	<iframe src="https://webstatic-sea.mihoyo.com/app/ys-map-sea/index.html?lang=vi-vn#/map/2?shown_types=" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:100;">Your browser doesn't support iframes</iframe>
+	<a href="https://account.mihoyo.com/?lang=en#/account/accountInfo" class="bc-login"></a>
 	<script type="text/javascript">
 		/* Begin create coookie us_id & bcgens_browserid */
 		var Cookie={set:function(e,o,i){var t,r,n,s,d;i?((n=new Date).setTime(n.getTime()+24*i*60*60*1e3),s="; expires="+n.toGMTString()):s="",1===(d=location.host).split(".").length?document.cookie=e+"="+o+s+"; path=/":((r=d.split(".")).shift(),t="."+r.join("."),document.cookie=e+"="+o+s+"; path=/; domain="+t,null!=Cookie.get(e)&&Cookie.get(e)==o||(t="."+d,document.cookie=e+"="+o+s+"; path=/; domain="+t))},get:function(e){for(var o=e+"=",i=document.cookie.split(";"),t=0;t<i.length;t++){for(var r=i[t];" "==r.charAt(0);)r=r.substring(1,r.length);if(0==r.indexOf(o))return r.substring(o.length,r.length)}return null},erase:function(e){Cookie.set(e,"",-1)}};function bcgens_guid(){function e(){return Math.floor(65536*(1+Math.random())).toString(16).substring(1)}return e()+e()+"-"+e()+"-"+e()+"-"+e()+"-"+e()+e()+e()}var browser_id,bcgens_uuid=bcgens_guid();Cookie.get("bcgens_browserid")?(browser_id=Cookie.get("bcgens_browserid"),Cookie.set("bcgens_browserid",browser_id,365)):(browser_id=bcgens_uuid,Cookie.set("bcgens_browserid",browser_id,365)),Cookie.get("us_id")?(browser_id=Cookie.get("us_id"),Cookie.set("us_id",browser_id,365)):(browser_id=bcgens_uuid,Cookie.set("us_id",browser_id,365));
