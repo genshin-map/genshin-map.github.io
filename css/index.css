@@ -12,17 +12,47 @@ body,
     z-index: 4000;
     display: block;
     position: absolute;
-    background-image: url("../imgs/con_img/switch_on.png");
-    background-repeat: no-repeat;
+    background-image: url("../imgs/con_img/switch_on_en.png");
     background-size: contain;
     width: 170px;
     height: 30px;
     left: 20px;
-    bottom: 100px;
+    bottom: 30px;
+    cursor: pointer;
+}
+
+.genshin_pub {
+    z-index: 4000;
+    display: block;
+    position: absolute;
+    background: url("../imgs/genshin_pub.png") no-repeat;
+    width: 190px;
+    height: 50px;
+    right: 20px;
+    bottom: 30px;
+    cursor: pointer;
+}
+
+.genshin_art {
+    z-index: 4000;
+    display: block;
+    position: absolute;
+    background: url("../imgs/genshin_art.png") no-repeat;
+    width: 190px;
+    height: 50px;
+    right: 20px;
+    bottom: 90px;
     cursor: pointer;
 }
 
 .YQLJ {
+    display: block;
+    margin: auto;
+    width: 190px;
+    height: 50px;
+}
+
+.YQLJ2 {
     display: block;
     margin: auto;
     width: 190px;
@@ -45,8 +75,8 @@ body,
     z-index: 4000;
     position: absolute;
     display: block;
-    width: 475px;
-    height: 490px;
+    width: 500px;
+    height: 500px;
     border-width: 0px;
     border-style: inset;
     border-color: initial;
@@ -54,9 +84,7 @@ body,
     transform-origin: 50% 50% 0;
     transform: scale(0.75);
     -webkit-transform: scale(0.75);
-    /*兼容-webkit-引擎浏览器*/
     -moz-transform: scale(0.75);
-    /*兼容-moz-引擎浏览器*/
     left: calc(50% - 475px/2);
     top: calc(50% - 490px/2);
 }
@@ -77,7 +105,20 @@ body,
     /* right: 0px; */
     right: -1000px;
 }
-/* Kiểu bộ lọc bản đồ */
+
+.danjixiazai {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 50px;
+    background: url(../imgs/con_img/danjixiazai_en.png) no-repeat center top;
+    background-size: contain;
+    width: 170px;
+    height: 64px;
+    z-index: 999;
+    cursor: pointer;
+}
+
 .hd {
     display: block;
     text-indent: -9999px;
@@ -96,16 +137,20 @@ body,
     z-index: 200;
 }
 
+.login-info {
+    cursor: pointer;
+}
+
 .reg_log_link {
-    width: 153px;
+    width: 168px;
     height: 50px;
-    background: url(../imgs/con_img/log_reg.png) no-repeat;
+    background: url(../imgs/con_img/log_reg_en.png) no-repeat;
 }
 
 .save-btn {
     width: 40px;
     height: 50px;
-    background: url(../imgs/con_img/save.png) no-repeat;
+    background: url(../imgs/con_img/save_en.png) no-repeat;
     z-index: 200;
 }
 
@@ -125,7 +170,7 @@ body,
 
 .control-containor {
     position: fixed;
-    z-index: 400;
+    z-index: 999;
     top: 0;
     right: -415px;
     width: 431px;
@@ -133,9 +178,7 @@ body,
     transform-origin: 0% 0% 0;
     transform: scale(0.75);
     -webkit-transform: scale(0.75);
-    /*兼容-webkit-引擎浏览器*/
     -moz-transform: scale(0.75);
-    /*兼容-moz-引擎浏览器*/
 }
 
 .Background {
@@ -167,7 +210,7 @@ body,
     border-radius: 2px;
     color: #000;
     text-align: center;
-    font-size: 24px;
+    font-size: 21px;
     line-height: 50px;
     margin-right: 11px;
     margin-bottom: 11px;
@@ -227,6 +270,11 @@ body,
     background: url(../imgs/con_img/liyue.png) no-repeat;
 }
 
+.qundao,
+.qundao1 {
+    background: url(../imgs/con_img/qundao.png) no-repeat;
+}
+
 .daoqi {
     background: url(../imgs/con_img/daoqi.png) no-repeat;
 }
@@ -253,6 +301,11 @@ body,
 
 .liyue.on {
     background: url(../imgs/con_img/liyue-on.png) no-repeat;
+}
+
+.qundao.on,
+.qundao1.on {
+    background: url(../imgs/con_img/qundao-on.png) no-repeat;
 }
 
 .daoqi.on {
@@ -333,7 +386,7 @@ body,
     border-radius: 2px;
     line-height: 74px;
     text-indent: 53px;
-    font-size: 24px;
+    font-size: 20px;
     border: 1px solid #D2C6BB;
     box-sizing: border-box;
     cursor: pointer;
@@ -496,11 +549,11 @@ body,
     position: block;
     font-style: normal;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 25px;
     line-height: 100%;
     color: #4B5368;
     order: 0;
-    margin: 2px 0;
+    margin: 2px 50px 2px 0;
 }
 
 .myPopLine {
@@ -599,9 +652,7 @@ body,
     transform-origin: 50% 100% 0;
     transform: scale(0.6);
     -webkit-transform: scale(0.6);
-    /*兼容-webkit-引擎浏览器*/
     -moz-transform: scale(0.6);
-    /*兼容-moz-引擎浏览器*/
 }
 
 .leaflet-popup-content {
@@ -781,9 +832,7 @@ body,
         transform-origin: 50% 100% 0;
         transform: scale(0.5);
         -webkit-transform: scale(0.5);
-        /*兼容-webkit-引擎浏览器*/
         -moz-transform: scale(0.5);
-        /*兼容-moz-引擎浏览器*/
     }
 }
 
@@ -803,4 +852,121 @@ body,
 
 .avatar-wrapper img {
     border-radius: 50%;
+}
+
+.Layer_MJK_LY,
+.Layer_MJK_MD,
+.Layer_SBLM_LY,
+.Layer_LYHHR_MD,
+.Layer_LYHHR_LY,
+.Layer_BWHHD_LY,
+.Layer_BWHHD_MD {
+    font-size: 18px !important;
+    text-indent: 45px !important;
+}
+
+.cover {
+    width: 100%;
+    height: 1px;
+}
+
+.info_window {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background: #fff;
+}
+
+.info_title {
+    width: 100%;
+    margin: 10px auto 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.info_window .close_btn {
+    position: absolute;
+    bottom: 20px;
+    left: 200px;
+    display: block;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    background: #6495ED;
+}
+
+.info_window p {
+    width: 90%;
+    margin: 0 auto 5px;
+    text-indent: 16px;
+}
+
+.infodiv {
+    width: 100%;
+    height: 150px;
+    overflow: hidden scroll;
+}
+
+.enindex-btn {
+    z-index: 400;
+    position: absolute;
+    display: block;
+    left: 57px;
+    top: 65px;
+    color: #191970;
+    font-weight: bold;
+}
+
+.jpindex-btn {
+    z-index: 400;
+    position: absolute;
+    display: block;
+    left: 57px;
+    top: 85px;
+    color: #191970;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 400px) {
+    .info_window {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff;
+    }
+
+    .info_window .close_btn {
+        bottom: 20px;
+        left: 125px;
+        width: 60px;
+        height: 30px;
+    }
+
+    .infodiv {
+        height: 210px;
+    }
+
+    .enindex-btn {
+        z-index: 400;
+        position: absolute;
+        display: block;
+        left: 35px;
+        top: 35px;
+        color: #191970;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .jpindex-btn {
+        z-index: 400;
+        position: absolute;
+        display: block;
+        left: 35px;
+        top: 55px;
+        color: #191970;
+        font-weight: bold;
+        font-size: 12px;
+    }
 }
